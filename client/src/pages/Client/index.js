@@ -244,10 +244,10 @@ class ClientForm extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <ClientForm />,
-    document.getElementById('root')
-);
+// ReactDOM.render(
+//     <ClientForm />,
+//     document.getElementById('root')
+// );
 
 
 function stringifyFormData(fd) {
@@ -257,3 +257,5 @@ function stringifyFormData(fd) {
     }
     return JSON.stringify(data, null, 2);
 }
+
+export default ClientForm;
