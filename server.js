@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 
-// Routes
+// Authentication Routes
 app.use('/api/auth', authRoutes)
 
 
