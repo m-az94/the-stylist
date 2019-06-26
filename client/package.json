@@ -5,10 +5,16 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.19.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+<<<<<<< HEAD
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^2.1.1"
+=======
     "react-scripts": "^2.1.1",
     "unirest": "^0.6.0"
+>>>>>>> master
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "bootstrap": "^4.3.1"
+  }
 }
