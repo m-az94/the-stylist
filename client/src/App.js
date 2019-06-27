@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+
+import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import '../node_modules/bootstrap/dist/css/bootstrap/'
-// import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
-import './index.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import Client from "./pages/Client";
+// import Stylist from "./pages/Stylist";
+import StylistCreateOutfit from "./pages/StylistCreateOutfit";
+//import "./App.css";
+//import './index.css';
 import Main from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import Login from './components/Login';
@@ -13,11 +16,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Route exact path='/' component={Main} />
+        <Switch>
+        <Route exact path='/' component={Main} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
-        </div>
+          {/* <Route exact path="/client" components={Client} /> */}
+          {/* <Route exact path="/stylist" components={Stylist} /> */}
+          <Route exact path ="/stylistcreateoutfit" component={StylistCreateOutfit} />
+        </Switch>
       </Router>
     );
   }
