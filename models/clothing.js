@@ -7,8 +7,7 @@ const clothing = new Schema ({
     dresses: [],
     shoes: [],
     bags: [],
-    accessories: [],
-    jewelry: []
+    accessories: []
 });
 
 const Clothing = mongoose.model("Clothing", clothing);
