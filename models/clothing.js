@@ -2,12 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const clothing = new Schema ({
-    tops: [],
-    bottoms: [],
-    dresses: [],
-    shoes: [],
-    bags: [],
-    accessories: []
+    type: String,
+    image: []
 });
 
 const Clothing = mongoose.model("Clothing", clothing);
