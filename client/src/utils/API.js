@@ -3,19 +3,19 @@ import axios from "axios";
 
 export default {
     findTops: function(){
-        return axios.get("/scrape/tops");
+        return axios.get("api/scrape/scrapedTops");
     },
     findBottoms: function (){
-        return axios.get("/scrape/bottoms");
+        return axios.get("api/scrape/scrapedBottoms");
     },
     findDresses: function(){
-        return axios.get("/scrape/dresses");
+        return axios.get("api/scrape/scrapedDresses");
     },
     findShoes: function(){
-        return axios.get("/scrape/shoes");
+        return axios.get("api/scrape/scrapedShoes");
     },
     findAccessories: function(){
-        return axios.get("/scrape/accessories");
+        return axios.get("api/scrape/scrapedAccessories");
     }
 }
 
