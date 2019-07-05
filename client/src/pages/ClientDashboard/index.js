@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import Card from "../components/Card";
-import Alert from "../components/Alert";
+// import API from "../utils/API";
+import Card from "../../components/Card";
 
 class Discover extends Component {
   state = {
@@ -10,10 +9,11 @@ class Discover extends Component {
     matchCount: 0
   };
 
+
   // When the component mounts, load the next dog to be displayed
-  componentDidMount() {
-    this.loadNextDog();
-  }
+  // componentDidMount() {
+  //   this.loadNextDog();
+  // }
 
   handleBtnClick = event => {
     // Get the data-value of the clicked button
@@ -59,9 +59,6 @@ class Discover extends Component {
         <h1 className="text-center">
           Made friends with {this.state.matchCount} pups so far!
         </h1>
-        <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-          Yay! That Pup Liked You Too!!!
-        </Alert>
       </div>
     );
   }
