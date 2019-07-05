@@ -108,11 +108,41 @@ router.get("/accessories", (req, res)=>{
     res.send("Scrape Complete!");
 });
 
-router.get("/scrapeditems", (req, res)=>{
-    db.Clothing
-    .find()
-    .then(items => res.json(items));
+// router.get("/scrapeditems", (req, res)=>{
+//     db.Clothing
+//     .find()
+//     .then(items => res.json(items));
 
-})
+// })
+
+router.get("/scrapedTops", (req, res) =>{
+    db.Clothing
+    .find({type: "tops"})
+    .then(items => res.json(items));
+});
+
+router.get("/scrapedBottoms", (req, res) =>{
+    db.Clothing
+    .find({type: "bottoms"})
+    .then(items => res.json(items));
+});
+
+router.get("/scrapedDresses", (req, res) =>{
+    db.Clothing
+    .find({type: "dresses"})
+    .then(items => res.json(items));
+});
+
+router.get("/scrapedShoes", (req, res) =>{
+    db.Clothing
+    .find({type: "shoes"})
+    .then(items => res.json(items));
+});
+
+router.get("/scrapedAccessories", (req, res) =>{
+    db.Clothing
+    .find({type: "accessories"})
+    .then(items => res.json(items));
+});
 
 module.exports=router;
