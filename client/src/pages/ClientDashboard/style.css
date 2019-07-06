@@ -1,8 +1,5 @@
-body {
-    font-family: 'Roboto Slab', sans-serif;
-    background: white;
-    color: #484848;
-    padding: 40px;
+#background {
+    background-color: black;
 }
 
 input {
@@ -34,13 +31,6 @@ button {
     border: none;
     outline: none;
     color: white;
-    border-bottom: 2px solid #797979;
-    &:hover {
-        background-color: #a1a1a1;
-    }
-    &:active {
-        background-color: #888;
-    }
 }
 
 form {
@@ -56,27 +46,4 @@ form {
 
 h3 {
     margin-top: 0;
-}
-
-@keyframes bounce {
-    from, 20%, 53%, 80%, to {
-        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        transform: translate3d(0, 0, 0);
-    }
-    40%, 43% {
-        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-        transform: translate3d(0, -30px, 0);
-    }
-    70% {
-        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-        transform: translate3d(0, -15px, 0);
-    }
-    90% {
-        transform: translate3d(0, -4px, 0);
-    }
-}
-
-.bounce {
-    animation: bounce 0.5s;
-    transform-origin: center bottom;
 }

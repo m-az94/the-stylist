@@ -1,0 +1,9 @@
+.nav-bar {
+    width: 100%;
+    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+    font-size: 3rem;
+    font-weight: bold;
+    z-index: 99;
+    white-space: nowrap;
+}
