@@ -4,6 +4,7 @@ import { Container, Row } from "../../components/Grid";
 import SearchItems from "../../components/SearchItems";
 import DisplayItems from "../../components/DisplayItems"
 import "./style.css";
+import DisplayState from '../../components/DisplayState';
 
 class StylistCreateOutfit extends Component {
     state = {
@@ -18,14 +19,14 @@ class StylistCreateOutfit extends Component {
 
     handleInputChange = event =>{
         event.persist();
-        console.log(event);
+        //console.log(event);
         this.setState({search: event.target.value});
     }
 
     handleSearchItems = event =>{
         event.preventDefault();
-        console.log(event);
-        console.log(this.state.search);
+        //console.log(event);
+        //console.log(this.state.search);
         let searchTerm = this.state.search;
         switch (searchTerm){
             case "tops":
@@ -61,6 +62,8 @@ class StylistCreateOutfit extends Component {
 
     handleImageClick = event =>{
         event.persist();
+        //console.log(event);
+        //console.log(this.state.search)
         let target = event.target.src;
         let operator = this.state.search;
         switch(operator){
@@ -82,19 +85,56 @@ class StylistCreateOutfit extends Component {
             break;
             case "accessories":
             this.setState({accessories: target});
-            console.log(this.state)
+            console.log(this.state);
+            break;
+        }
+    }
+
+    handleRemoveState = event =>{
+        event.persist();
+        let target = event.target.id;
+        switch (target){
+            case "top": 
+            this.setState({top: ""});
+            break;
+            case "bottom":
+            this.setState({bottom: ""});
+            break;
+            case "dress": 
+            this.setState({dress: ""});
+            break;
+            case "shoes":
+            this.setState({shoes: ""});
+            break;
+            case "accessories":
+            this.setState({accessories: ""});
             break;
         }
     }
 
     render(){
 
-        let display;
+        let displayItems;
         if (this.state.results.length===0){
-          display = <h3>No clothes to view</h3>;
+          displayItems = <h3>No clothes to view</h3>;
         }
         else{
-          display = <DisplayItems images={this.state.results} handleImageClick={this.handleImageClick} />
+          displayItems = <DisplayItems images={this.state.results} handleImageClick={this.handleImageClick} />
+        }
+
+        let displayState;
+        if(this.state.top==="" && this.state.bottom==="" && this.state.dress==="" && this.state.shoes==="" && this.state.accessories===""){
+            displayState = <h3> Your Outfit Will Be Displayed Here</h3>
+        }
+        else{
+            displayState = 
+            <DisplayState 
+            top={this.state.top}  
+            bottom={this.state.bottom} 
+            dress={this.state.dress}
+            shoes={this.state.shoes} 
+            accessories={this.state.accessories} 
+            handleRemoveState={this.handleRemoveState}  />
         }
 
         return (
@@ -105,7 +145,12 @@ class StylistCreateOutfit extends Component {
                     </Row>
                     <Row>
                         <SearchItems handleInputChange={this.handleInputChange} handleSearchItems={this.handleSearchItems} />
-                        {display}
+                    </Row>
+                    <Row>
+                        {displayState}
+                    </Row>
+                    <Row>
+                        {displayItems}
                     </Row>
                 </Container>
             </div>
