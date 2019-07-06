@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from "../../components/Grid";
+import './style.css';
 
 const inputParsers = {
     uppercase(input) {
@@ -69,6 +69,7 @@ class ClientForm extends React.Component {
         const { res, invalid, displayErrors } = this.state;
         return (
             <div>
+                <h3 className="text-center">Tell me us more about you</h3>
                 <form
                     onSubmit={this.handleSubmit}
                     noValidate
