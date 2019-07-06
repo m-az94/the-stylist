@@ -24,7 +24,7 @@ class StylistCreateOutfit extends Component {
     }
 
     handleSearchItems = event =>{
-        event.preventDefault();
+        event.persist();
         //console.log(event);
         //console.log(this.state.search);
         let searchTerm = this.state.search;
@@ -184,7 +184,7 @@ class StylistCreateOutfit extends Component {
             <div id="createOutfitMain">
                 <Container>
                     <Row>
-                        <h1>Create an Outfit</h1>
+                    <h3>Create an Outfit</h3>
                     </Row>
                     <Row>
                         <SearchItems handleInputChange={this.handleInputChange} handleSearchItems={this.handleSearchItems} />
