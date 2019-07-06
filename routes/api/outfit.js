@@ -13,3 +13,5 @@ router
 router
     .route("/stylistClientRef/:id")
     .put(controller.isHot);
+
+module.exports=router;
