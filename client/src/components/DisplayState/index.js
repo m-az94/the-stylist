@@ -15,19 +15,19 @@ let checkDisplay = object =>{
             type: "bottom"
         })
     }
-    if (!object.dress!==""){
+    if (object.dress!==""){
         display.push({
             item: object.dress,
             type: "dress"
         })
     }
-    if (!object.shoes!==""){
+    if (object.shoes!==""){
         display.push({
             item: object.shoes,
             type: "shoes"
         })
     }
-    if (!object.accessories!==""){
+    if (object.accessories!==""){
         display.push({
             item: object.accessories,
             type: "accessories"
@@ -61,6 +61,7 @@ let DisplayState = (props) =>{
                    )
                 })
             }
+            <button type="button" className="btn send2Client" onClick={props.handleSend2Client}> Send Outfit to Client </button>
         </div>
     )
 }
