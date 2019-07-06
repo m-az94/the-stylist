@@ -27,13 +27,22 @@ ody {
   .form-signin .form-control:focus {
     z-index: 2;
   }
+
+  .form-signin input[type="name"] {
+    margin-bottom: -2px;
+    background-color: aqua;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
   .form-signin input[type="email"] {
+    background-color: aqua;
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
   .form-signin input[type="password"] {
     margin-bottom: 10px;
+    background-color: aqua;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }

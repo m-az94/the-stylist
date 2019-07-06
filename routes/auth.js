@@ -14,8 +14,10 @@ router.post('/register', function(req, res) {
       res.json({success: false, msg: 'Please pass Email and password.'});
     } else {
       var newUser = new User({
+        name:req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        gender: req.body.gender
       });
       // save the user
       newUser.save(function(err) {

@@ -9,8 +9,10 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
+      name:'',
       email: '',
       password: '',
+      type:'',
       message: ''
     };
   }
@@ -23,9 +25,9 @@ class Login extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { email, password } = this.state;
+    const { name,email, password,type } = this.state;
 
-    axios.post('/api/auth/login', { email, password })
+    axios.post('/api/auth/login', {name, email, password,type })
       .then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
         this.setState({ message: '' });
@@ -39,7 +41,7 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password, message } = this.state;
+    const {name, email, password, message,type } = this.state;
     return (
       <div class="container">
         <form class="form-signin" onSubmit={this.onSubmit}>
@@ -49,6 +51,7 @@ class Login extends Component {
             </div>
           }
           <h2 class="form-signin-heading">Please sign in</h2>
+          
           <label for="inputEmail" class="sr-only">Email address</label>
           <input type="email" class="form-control" placeholder="Email address" name="email" value={email} onChange={this.onChange} required/>
           <label for="inputPassword" class="sr-only">Password</label>
