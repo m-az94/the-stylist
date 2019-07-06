@@ -13,29 +13,38 @@ import Login from './components/Login';
 import Register from './components/Register';
 import ClientDashboard from './pages/ClientDashboard';
 import ClientProfile from './pages/ClientProfile';
-import TopNavbar from "./components/TopNavBar";
+import StylistDashboard from './pages/StylistDashboard';
+import SideNavBar from "./components/SideNavBar";
+import TopNavBar from "./components/TopNavBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import StylistData from './stylist.json';
 import Card from './components/Card';
 
+console.log(StylistData)
+
 class App extends Component {
+
   render() {
+
+    console.log(StylistData)
     return (
       <Router>
         <div>
-        <TopNavbar />
-        <Wrapper>
-          <Route exact path='/' component={Main} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
-          <Route path='/dashboard' component={ClientDashboard} />
-          <Route path='/profile' component={ClientProfile} />
-          {/* <Route exact path="/client" components={Client} /> */}
-          {/* <Route exact path="/stylist" components={Stylist} /> */}
-          <Route exact path="/stylistcreateoutfit" component={StylistCreateOutfit} />
-        </Wrapper>
-        <Footer />
+          <Wrapper>
+          {/* <SideNavBar /> */}
+          <TopNavBar />
+            <Route exact path='/' component={Main} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/client-dashboard' component={ClientDashboard} />
+            <Route path='/stylist-dashboard' component={StylistDashboard} />
+            <Route path='/profile' component={ClientProfile} />
+            {/* <Route exact path="/client" components={Client} /> */}
+            {/* <Route exact path="/stylist" components={Stylist} /> */}
+            <Route exact path="/stylistcreateoutfit" component={StylistCreateOutfit} />
+          </Wrapper>
+          <Footer />
         </div>
       </Router>
     );

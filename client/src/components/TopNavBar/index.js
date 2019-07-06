@@ -7,11 +7,17 @@ function TopNavbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/">
-                Stylist
-          </Link>
+                <img
+                    src="./logo-transparent.png"
+                    width="70"
+                    height="50"
+                    className="d-inline-block align-top"
+                    alt="The Stylist"
+                />
+            </Link>
             <div>
-                <ul className="navbar-nav">
-                    <li className="nav-item">
+                <ul className="navbar-nav mr-auto">
+                    {/* <li className="nav-item">
                         <Link
                             to="/"
                             className={
@@ -21,12 +27,11 @@ function TopNavbar() {
                             }
                         >
                             Main
-                </Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link
-                            to="/dashboard"
-                            className={window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}
+                            to="/client-dashboard"
+                            className={window.location.pathname === "/client-dashboard" ? "nav-link active" : "nav-link"}
                         >
                             Dashboard
                 </Link>
