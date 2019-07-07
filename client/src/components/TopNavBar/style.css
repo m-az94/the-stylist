@@ -1,9 +1,68 @@
-.nav-bar {
+.navbar {
     width: 100%;
-    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
-    font-size: 3rem;
-    font-weight: bold;
+    border: 1px solid #e2e2e2;
+    font-size: 4rem;
     z-index: 99;
     white-space: nowrap;
+    color: #000;
+}
+
+.navbar-brand {
+    vertical-align: middle;
+    border: 0;
+    position: absolute;
+    left: 45%;
+    cursor: pointer;
+    font-family: 'Pacifico', cursive;
+}
+
+#signIn {
+    position: relative;
+    display: flex;
+    font-weight: normal;
+    /* width: 93px; */
+    /* height: 28px; */
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    color: #000;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 22px;
+    transition: all .3s;
+}
+
+#signUp {
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    font-weight: 400;
+    /* width: 93px; */
+    /* height: 28px; */
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    color: #000;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 22px;
+    transition: all .3s;
+    border: 1px solid rgb(133, 128, 128);
+    background-color: #dfb4f1;
+}
+
+#stylist {
+    position: relative;
+    display: flex;
+    font-weight: normal;
+    /* width: 93px; */
+    /* height: 28px; */
+    font-size: 14px;
+    line-height: 2.14;
+    letter-spacing: 1.2px;
+    color: #000;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 22px;
+    transition: all .3s;
 }

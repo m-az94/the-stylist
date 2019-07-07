@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-// import API from "../utils/API";
+import API from "../../utils/API";
 import Card from "../../components/Card";
 import StylistData from '../../stylist.json';
+import './style.css';
 
 class Dashboard extends Component {
   state = {
@@ -10,11 +11,10 @@ class Dashboard extends Component {
     matchCount: 0
   };
 
-
   // When the component mounts, load the next dog to be displayed
-  // componentDidMount() {
-  //   this.loadNextDog();
-  // }
+  componentDidMount() {
+    this.loadNextDog();
+  }
 
   handleBtnClick = event => {
     // Get the data-value of the clicked button
@@ -39,21 +39,21 @@ class Dashboard extends Component {
     this.setState(newState);
   };
 
-  // loadNextDog = () => {
-  //   API.getRandomDog()
-  //     .then(res =>
-  //       this.setState({
-  //         image: res.data.message
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+  loadNextDog = () => {
+    API.postClientInfo()
+      .then(res =>
+        //   this.setState({
+        //     image: res.data.message
+        //   })
+        console.log(res)
+      )
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
-      <div id="background" className="text-center">
-        <h3 className="text-center">Outfit 1 <button>Contact Sylist 1</button>
-        </h3>
+      <div>
+        <h3>Outfit 1 <button id="btn">Contact Stylist 1</button></h3>
         {
           StylistData.map(StylistData => (
             <Card
@@ -62,8 +62,7 @@ class Dashboard extends Component {
             />
           ))
         }
-        <h3 className="text-center">Outift 2 <button>Contact Sylist 2</button>
-        </h3>
+        <h3>Outfit 2 <button id="btn">Contact Stylist 2</button></h3>
         {
           StylistData.map(StylistData => (
             <Card
