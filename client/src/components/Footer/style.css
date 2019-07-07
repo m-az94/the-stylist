@@ -1,15 +1,15 @@
 .footer {
-    min-height: 100px;
-    background: #E5E5E5;
-    position: relative;
-}
-
-.footer span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 3px;
-    background: #B8B8B8;
-    text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  text-align: center;
+  color: #81919b;
+  background: #ffffff;
+  font-family: 'Proxima Nova', sans-serif;
+  border: 1px solid #e2e2e2;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-size: 0.78rem;
 }

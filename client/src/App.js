@@ -14,11 +14,11 @@ import Register from './components/Register';
 import ClientDashboard from './pages/ClientDashboard';
 import ClientProfile from './pages/ClientProfile';
 import StylistDashboard from './pages/StylistDashboard';
-import SideNavBar from "./components/SideNavBar";
 import TopNavBar from "./components/TopNavBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import StylistData from './stylist.json';
+import ClientInfoData from './clientinfo.json';
 import Card from './components/Card';
 
 console.log(StylistData)
@@ -32,8 +32,8 @@ class App extends Component {
       <Router>
         <div>
           <Wrapper>
-          {/* <SideNavBar /> */}
           <TopNavBar />
+          {/* <SidebarExample /> */}
             <Route exact path='/' component={Main} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
@@ -43,8 +43,8 @@ class App extends Component {
             {/* <Route exact path="/client" components={Client} /> */}
             {/* <Route exact path="/stylist" components={Stylist} /> */}
             <Route exact path="/stylistcreateoutfit" component={StylistCreateOutfit} />
-          </Wrapper>
           <Footer />
+          </Wrapper>
         </div>
       </Router>
     );
