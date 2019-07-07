@@ -29,7 +29,7 @@ let SearchItems = props =>{
                 </Row>
             </form>
             <Row>
-            <input type="sumbit" value="submit" onClick={props.handleSearchItems} />
+            <button type="sumbit" value="submit" onClick={props.handleSearchItems} >Submit</button>
             </Row>
         </Container>
     )
