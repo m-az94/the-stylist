@@ -1,23 +1,17 @@
 import axios from "axios";
-// import cheerio from "cheerio";
+import tops from "./tops.json";
+import bottoms from "./bottoms.json";
+import dresses from "./dresses.json";
+import shoes from "./shoes.json";
+import accessories from "./accessories.json";
 
 export default {
   // Inventory - scrape model
-    findTops: function(){
-        return axios.get("api/scrape/scrapedTops");
-    },
-    findBottoms: function (){
-        return axios.get("api/scrape/scrapedBottoms");
-    },
-    findDresses: function(){
-        return axios.get("api/scrape/scrapedDresses");
-    },
-    findShoes: function(){
-        return axios.get("api/scrape/scrapedShoes");
-    },
-    findAccessories: function(){
-        return axios.get("api/scrape/scrapedAccessories");
-    },
+    findTops: tops,
+    findBottoms: bottoms,
+    findDresses: dresses,
+    findShoes: shoes,
+    findAccessories: accessories,
     // Outfits - clientStylistRef model
     createOutfit: function(sendOutfit){
       axios.post("api/outfit/stylistClientRef", sendOutfit);
