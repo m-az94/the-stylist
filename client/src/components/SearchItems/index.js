@@ -1,20 +1,37 @@
 import React from "react";
+import {Container, Row, Col} from "../Grid"
+import "./style.css"
 // import "./style.css";
 
 let SearchItems = props =>{
     return(
-        <div>
-            <form>
-                <label id="searchItemLabel">Select any of the following: </label><br />
-                <input type="radio" name="searchItems" value="top" onChange={props.handleInputChange} /><label> Tops</label><br />
-                <input type="radio" name="searchItems" value="bottom" onChange={props.handleInputChange} /><label> Bottoms</label><br />
-                <input type="radio" name="searchItems" value="dress" onChange={props.handleInputChange}/><label> Dresses</label><br />
-                <input type="radio" name="searchItems" value="footwear" onChange={props.handleInputChange} /><label> Footwear</label><br />
-                <input type="radio" name="searchItems" value="bag" onChange={props.handleInputChange} /><label> Bags</label><br />
-                <input type="radio" name="searchItems" value="accessories" onChange={props.handleInputChange} /><label> Accessories</label><br />
+        <Container>
+            <form id="form">
+                <Row >
+                <label id="searchItemLabel">Select one of the following: </label>
+                </Row>
+                <Row>
+                    <Col size="md-2">
+                        <input type="radio" name="searchItems" value="tops" onChange={props.handleInputChange} /><label> Tops</label>
+                    </Col>
+                    <Col size="md-2">
+                        <input type="radio" name="searchItems" value="bottoms" onChange={props.handleInputChange} /><label> Bottoms</label>
+                    </Col>
+                    <Col size="md-2">
+                        <input type="radio" name="searchItems" value="dresses" onChange={props.handleInputChange}/><label> Dresses</label>
+                    </Col>
+                    <Col size="md-2">
+                        <input type="radio" name="searchItems" value="shoes" onChange={props.handleInputChange} /><label> Shoes</label>
+                    </Col>
+                    <Col size="md-2">
+                        <input type="radio" name="searchItems" value="accessories" onChange={props.handleInputChange} /><label> Accessories</label>
+                    </Col>
+                </Row>
             </form>
+            <Row>
             <input type="sumbit" value="submit" onClick={props.handleSearchItems} />
-        </div>
+            </Row>
+        </Container>
     )
 }
 

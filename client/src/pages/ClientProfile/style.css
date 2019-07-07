@@ -1,18 +1,11 @@
-body {
-    font-family: 'Roboto Slab', sans-serif;
-    background: white;
-    color: #484848;
-    padding: 40px;
-}
-
 input {
     display: flex;
     margin-bottom: 15px;
     margin-top: 5px;
     padding: 10px;
     width: 100%;
-    border: 1px solid #cfcfcf;
-    font-family: 'Roboto Slab', sans-serif;
+    border: 1px solid #ebebeb;
+    font-family: 'Proxima Nova', sans-serif;
     font-size: 16px;
     outline: none;
 }
@@ -22,7 +15,7 @@ input {
 }
 
 pre, code {
-    font-family: 'Roboto Mono', Monaco;
+    font-family: 'Proxima Nova', sans-serif;
 }
 
 button {
@@ -45,9 +38,16 @@ button {
 
 form {
     display: inline-block;
-    margin-right: 50px;
     margin-bottom: 20px;
-    vertical-align: top;
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    text-transform: uppercase;
+    color: #d696f1;
+    letter-spacing: 1.2px;
+    font-size: 0.85rem;
 }
 
 .res-block {
@@ -55,7 +55,13 @@ form {
 }
 
 h3 {
-    margin-top: 0;
+    margin-top: 50px;
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+h3 span {
+    color: #d696f1;
+    font-weight: 500;
 }
 
 @keyframes bounce {

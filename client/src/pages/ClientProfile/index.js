@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col } from "../../components/Grid";
+import './style.css';
+import API from '../../utils/API';
 
 const inputParsers = {
     uppercase(input) {
@@ -63,18 +64,29 @@ class ClientForm extends React.Component {
             displayErrors: false,
         });
 
+        console.log(stringifyFormData(data))
+
+        API.postClientInfo(stringifyFormData(data))
+            .then(res =>
+                //   this.setState({
+                //     image: res.data.message
+                //   })
+                console.log(res)
+            )
+            .catch(err => console.log(err));
     }
 
     render() {
         const { res, invalid, displayErrors } = this.state;
         return (
             <div>
+                <h3 className="text-center">Tell us more about <span>you</span></h3>
                 <form
                     onSubmit={this.handleSubmit}
                     noValidate
                     className={displayErrors ? 'displayErrors' : ''}
                 >
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">My name is:</label>
                     <input
                         id="name"
                         name="name"
@@ -83,7 +95,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="birthdate">Birthdate:</label>
+                    <label htmlFor="birthdate">My birthdate is:</label>
                     <input
                         id="birthdate"
                         name="birthdate"
@@ -94,7 +106,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="hairColour">Hair colour:</label>
+                    <label htmlFor="hairColour">My hair colour is:</label>
                     <input
                         id="hairColour"
                         name="hairColour"
@@ -103,7 +115,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="eyeColour">Eye colour:</label>
+                    <label htmlFor="eyeColour">My eye colour is:</label>
                     <input
                         id="eyeColour"
                         name="eyeColour"
@@ -112,7 +124,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="bodyType">Body type:</label>
+                    <label htmlFor="bodyType">My body type is:</label>
                     <input
                         id="bodyType"
                         name="bodyType"
@@ -121,7 +133,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="chest">Chest - cm:</label>
+                    <label htmlFor="chest">My chest measurement in cm:</label>
                     <input
                         id="chest"
                         name="chest"
@@ -130,7 +142,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="waist">Waist - cm:</label>
+                    <label htmlFor="waist">My waist measurement in cm:</label>
                     <input
                         id="waist"
                         name="waist"
@@ -139,7 +151,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="shoulders">Shoulders - cm:</label>
+                    <label htmlFor="shoulders">My shoulders measurement in cm:</label>
                     <input
                         id="shoulders"
                         name="shoulders"
@@ -148,7 +160,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="shoeSize">Shoe size - US/CAN:</label>
+                    <label htmlFor="shoeSize">My shoe size in US/CAN:</label>
                     <input
                         id="shoeSize"
                         name="shoeSize"
@@ -158,7 +170,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="jeanSize">Jean/Pant size:</label>
+                    <label htmlFor="jeanSize">My jean/pant size is:</label>
                     <input
                         id="jeanSize"
                         name="jeanSize"
@@ -168,7 +180,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="shirtSize">Shirt size:</label>
+                    <label htmlFor="shirtSize">My shirt size is:</label>
                     <input
                         id="shirtSize"
                         name="shirtSize"
@@ -178,7 +190,7 @@ class ClientForm extends React.Component {
                         required
                     />
 
-                    <label htmlFor="jacketSize">Jacket/Blazer size:</label>
+                    <label htmlFor="jacketSize">My jacket/blazer size is:</label>
                     <input
                         id="jacketSize"
                         name="jacketSize"

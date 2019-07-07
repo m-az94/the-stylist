@@ -1,0 +1,16 @@
+.btn {
+    cursor: pointer;
+    padding: 10px;
+    background: #dfb4f1;
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+h3 {
+    font-family: 'Proxima Nova', sans-serif;
+    text-align: left;
+    margin-left: 5%;
+}
