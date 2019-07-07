@@ -1,0 +1,20 @@
+[
+    {
+        "name": "CHEWBACCA",
+        "birthdate": "1990-12-14",
+        "hairColour": "PURPLE",
+        "eyeColour": "BLUE",
+        "bodyType": "RECTANGLE",
+        "chest": "12",
+        "waist": "34",
+        "shoulders": "56",
+        "shoeSize": "7",
+        "jeanSize": "27",
+        "shirtSize": "MEDIUM",
+        "jacketSize": "LARGE",
+        "q1": "CHIC",
+        "q2": "BLACK",
+        "q3": "LADY GAGA",
+        "q4": "NAILS"
+    }
+]
