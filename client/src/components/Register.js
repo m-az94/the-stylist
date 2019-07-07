@@ -38,9 +38,9 @@ class Create extends Component {
         <form class="form-signin" onSubmit={this.onSubmit}>
           <h5 class="form-signin-heading">Register</h5>
           <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" class="form-control" placeholder="Email address" name="email" value={email} onChange={this.onChange} required/>
+          <input type="email" class="form-control" placeholder="Email address" name="email" value={email} onChange={this.onChange} required />
           <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" class="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
+          <input type="password" class="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required />
           <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         </form>
       </div>
