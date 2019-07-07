@@ -3,12 +3,21 @@ import API from "../../utils/API";
 import Card from "../../components/Card";
 import StylistData from '../../stylist.json';
 import './style.css';
+import "@material/react-dialog/dist/dialog.css";
+import Dialog, {
+  DialogTitle,
+  DialogContent,
+  DialogFooter,
+  DialogButton,
+} from '@material/react-dialog';
 
 class Dashboard extends Component {
   state = {
     image: "",
     match: false,
-    matchCount: 0
+    matchCount: 0,
+    modalOpen: false,
+    modalContent: ''
   };
 
   // When the component mounts, load the next dog to be displayed
@@ -51,9 +60,28 @@ class Dashboard extends Component {
   };
 
   render() {
+
+    const Modal = (
+      <Dialog open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false })}>
+        <DialogTitle>My Dialog</DialogTitle>
+        <DialogContent>
+          PUT SOMETHING HERE
+          <h1>Title</h1>
+          <p>bla bla bla</p>
+        </DialogContent>
+        <DialogFooter>
+          <DialogButton action='dismiss'>Dismiss</DialogButton>
+          <DialogButton action='accept' isDefault>Accept</DialogButton>
+        </DialogFooter>
+      </Dialog>
+    )
+    console.log(this.state.modalOpen)
+
     return (
-      <div>
-        <h3>Outfit 1 <button id="btn">Contact Stylist 1</button></h3>
+      <div id="background" className="text-center">
+        {Modal}
+        <h3>Outfit 1 <button onClick={() => this.setState({ modalOpen: true })}>Contact Sylist 1</button>
+        </h3>
         {
           StylistData.map(StylistData => (
             <Card
@@ -62,7 +90,8 @@ class Dashboard extends Component {
             />
           ))
         }
-        <h3>Outfit 2 <button id="btn">Contact Stylist 2</button></h3>
+        <h3>Outift 2 <button onClick={() => this.setState({ modalOpen: true })}>Contact Sylist 2</button>
+        </h3>
         {
           StylistData.map(StylistData => (
             <Card

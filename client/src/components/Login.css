@@ -1,5 +1,6 @@
   .form-signin {
     max-width: 430px;
+    max-height: 330px;
     margin: 0 auto;
     display: block;
     margin-left: auto;
@@ -8,7 +9,7 @@
   }
 
   .form-signin .form-signin-heading, .form-signin .checkbox {
-    margin-bottom: 10%;
+    margin-bottom: 15%;
   }
 
   .form-signin .checkbox {
@@ -28,6 +29,12 @@
     z-index: 2;
   }
 
+  .form-signin input[type="name"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
   .form-signin input[type="email"] {
     margin-bottom: 10px;
     border-bottom-right-radius: 0;
@@ -35,7 +42,7 @@
   }
 
   .form-signin input[type="password"] {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -47,7 +54,13 @@
   }
 
   .form-signin-heading {
-    margin-top: 30%;
+    margin-top: 17%;
     text-align: center;
     color: #000;
+  }
+
+  .radio {
+    display: inline;
+    color: #000;
+    margin-left: 15px;
   }
