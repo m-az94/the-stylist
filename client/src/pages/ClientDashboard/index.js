@@ -2,12 +2,21 @@ import React, { Component } from "react";
 // import API from "../utils/API";
 import Card from "../../components/Card";
 import StylistData from '../../stylist.json';
+import "@material/react-dialog/dist/dialog.css";
+import Dialog, {
+  DialogTitle,
+  DialogContent,
+  DialogFooter,
+  DialogButton,
+} from '@material/react-dialog';
 
 class Dashboard extends Component {
   state = {
     image: "",
     match: false,
-    matchCount: 0
+    matchCount: 0,
+    modalOpen: false,
+    modalContent: ''
   };
 
 
@@ -49,10 +58,32 @@ class Dashboard extends Component {
   //     .catch(err => console.log(err));
   // };
 
+
+
+
   render() {
+
+
+  const Modal = (
+    <Dialog open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false })}>
+      <DialogTitle>My Dialog</DialogTitle>
+      <DialogContent>
+        PUT SOMETHING HERE
+        <h1>Title</h1>
+        <p>bla bla bla</p>
+      </DialogContent>
+      <DialogFooter>
+        <DialogButton action='dismiss'>Dismiss</DialogButton>
+        <DialogButton action='accept' isDefault>Accept</DialogButton>
+      </DialogFooter>
+    </Dialog>
+  )
+    console.log(this.state.modalOpen)
+
     return (
       <div id="background" className="text-center">
-        <h3 className="text-center">Outfit 1 <button>Contact Sylist 1</button>
+        {Modal}
+        <h3 className="text-center">Outfit 1 <button onClick={()=>this.setState({ modalOpen: true })}>Contact Sylist 1</button>
         </h3>
         {
           StylistData.map(StylistData => (
@@ -62,7 +93,7 @@ class Dashboard extends Component {
             />
           ))
         }
-        <h3 className="text-center">Outift 2 <button>Contact Sylist 2</button>
+        <h3 className="text-center">Outift 2 <button onClick={()=>this.setState({ modalOpen: true })}>Contact Sylist 2</button>
         </h3>
         {
           StylistData.map(StylistData => (
