@@ -24,7 +24,7 @@ class StylistCreateOutfit extends Component {
     }
 
     handleSearchItems = event =>{
-        event.preventDefault();
+        event.persist();
         //console.log(event);
         //console.log(this.state.search);
         let searchTerm = this.state.search;
@@ -112,6 +112,48 @@ class StylistCreateOutfit extends Component {
         }
     }
 
+    handleSend2Client = event =>{
+        event.persist();
+        let outfit=[];
+        if (this.state.top!==""){
+            outfit.push({
+                item: this.state.top,
+                type: "top"
+            })
+        }
+        if (this.state.bottom!==""){
+            outfit.push({
+                item: this.state.bottom,
+                type: "bottom"
+            })
+        }
+        if (this.state.dress!==""){
+            outfit.push({
+                item: this.state.dress,
+                type: "dress"
+            })
+        }
+        if (this.state.shoes!==""){
+            outfit.push({
+                item: this.state.shoes,
+                type: "shoes"
+            })
+        }
+        if (this.state.accessories!==""){
+            outfit.push({
+                item: this.state.accessories,
+                type: "accessories"
+            })
+        }
+        console.log(outfit);
+        API.createOutfit({
+            clientID: Math.floor(Math.random()*11),
+            stylistID: Math.floor(Math.random()*11),
+            styleResult: outfit
+        });
+
+    }
+
     render(){
 
         let displayItems;
@@ -134,14 +176,15 @@ class StylistCreateOutfit extends Component {
             dress={this.state.dress}
             shoes={this.state.shoes} 
             accessories={this.state.accessories} 
-            handleRemoveState={this.handleRemoveState}  />
+            handleRemoveState={this.handleRemoveState} 
+            handleSend2Client={this.handleSend2Client} />
         }
 
         return (
             <div id="createOutfitMain">
                 <Container>
                     <Row>
-                        <h1>Create an Outfit</h1>
+                    <h3>Create an Outfit</h3>
                     </Row>
                     <Row>
                         <SearchItems handleInputChange={this.handleInputChange} handleSearchItems={this.handleSearchItems} />
