@@ -12,7 +12,7 @@ class Create extends Component {
       name:'',
       email: '',
       password: '',
-      gender:'',
+      type:'',
     };
   }
   onChange = (e) => {
@@ -24,9 +24,9 @@ class Create extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const {name, email, password , gender} = this.state;
+    const {name, email, password , type} = this.state;
 
-    axios.post('/api/auth/register', { name,email, password,gender })
+    axios.post('/api/auth/register', { name,email, password,type })
       .then((result) => {
         //   console.log(result)
         this.props.history.push("/login")
@@ -34,7 +34,7 @@ class Create extends Component {
   }
 
   render() {
-    const { name,email, password ,gender} = this.state;
+    const { name,email, password ,type} = this.state;
     return (
       <div class="container">
         <form class="form-signin" onSubmit={this.onSubmit}>
@@ -49,18 +49,18 @@ class Create extends Component {
           
           
 
-    <label >Gender Type </label>  
+    <label > Type </label>  
     <br />
     <div className="radio">
     <label>
-    <input type="radio" name="gender" value="M" checked={this.state.gender === 'M'} onChange={e => this.setState({ gender: 'M'})} />
-      Male
+    <input type="radio" name="type" value="Stylist" checked={this.state.type === 'Stylist'} onChange={e => this.setState({ type: 'Sytlist'})} />
+    Stylist
     </label>
     </div>
     <div className="radio">
     <label>
-    <input type="radio" name="gender" value="F" checked={this.state.gender === 'F'} onChange={e => this.setState({ gender: 'F'})} />
-      Female
+    <input type="radio" name="type" value="Client" checked={this.state.type === 'Client'} onChange={e => this.setState({ type: 'Client'})} />
+      Client
     </label>
     </div>
 
@@ -71,6 +71,7 @@ class Create extends Component {
         </form>
       </div>
     );
+    
   }
 }
 
