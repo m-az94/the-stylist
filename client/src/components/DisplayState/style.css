@@ -1,0 +1,19 @@
+.outfitImg{
+    width: 15vw;
+
+}
+#secTitle{
+    font-family: 'Proxima Nova', sans-serif;
+    color: #DFB4F1;
+}
+#disState{
+    background:#F8F9FA;
+    /* border: 2px solid #DFB4F1; */
+    padding: 2vw 5vw 2vw 5vw;
+    margin-top: 5vw;
+
+}
+.removeBtn{
+    width: 15vw;
+    margin-bottom: 2vw;
+}

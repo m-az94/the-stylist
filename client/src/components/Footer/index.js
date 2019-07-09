@@ -4,7 +4,9 @@ import "./style.css";
 function Footer() {
     return (
         <footer className="footer">
-            <span>Pupster 2017</span>
+            <div>&copy; The Stylist 2019
+            <a href="https://github.com/m-az94/the-stylist"><i class="fa fa-github-square"></i></a>
+            </div>
         </footer>
     );
 }

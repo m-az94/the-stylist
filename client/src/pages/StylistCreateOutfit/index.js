@@ -19,43 +19,32 @@ class StylistCreateOutfit extends Component {
 
     handleInputChange = event =>{
         event.persist();
-        //console.log(event);
         this.setState({search: event.target.value});
     }
 
     handleSearchItems = event =>{
-        event.preventDefault();
-        //console.log(event);
-        //console.log(this.state.search);
+        event.persist();
         let searchTerm = this.state.search;
         switch (searchTerm){
             case "tops":
-            API.findTops()
-            .then(found => {
-                console.log(found.data[0].image);
-                this.setState({results: found.data[0].image})
-            })
-            .catch( err => console.log(err));
+            console.log(API.findTops);
+            this.setState({results: API.findTops[0].image});
             break;
             case "bottoms":
-            API.findBottoms()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findBottoms);
+            this.setState({results: API.findBottoms[0].image});
             break;
             case "dresses":
-            API.findDresses()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findDresses);
+            this.setState({results: API.findDresses[0].image});
             break;
             case "shoes":
-            API.findShoes()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findShoes);
+            this.setState({results: API.findShoes[0].image});
             break;
             case "accessories":
-            API.findAccessories()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findAccessories);
+            this.setState({results: API.findAccessories[0].image});
             break;
         }
     }
@@ -112,11 +101,53 @@ class StylistCreateOutfit extends Component {
         }
     }
 
+    handleSend2Client = event =>{
+        event.persist();
+        let outfit=[];
+        if (this.state.top!==""){
+            outfit.push({
+                item: this.state.top,
+                type: "top"
+            })
+        }
+        if (this.state.bottom!==""){
+            outfit.push({
+                item: this.state.bottom,
+                type: "bottom"
+            })
+        }
+        if (this.state.dress!==""){
+            outfit.push({
+                item: this.state.dress,
+                type: "dress"
+            })
+        }
+        if (this.state.shoes!==""){
+            outfit.push({
+                item: this.state.shoes,
+                type: "shoes"
+            })
+        }
+        if (this.state.accessories!==""){
+            outfit.push({
+                item: this.state.accessories,
+                type: "accessories"
+            })
+        }
+        console.log(outfit);
+        API.createOutfit({
+            clientID: Math.floor(Math.random()*11),
+            stylistID: Math.floor(Math.random()*11),
+            styleResult: outfit
+        });
+
+    }
+
     render(){
 
         let displayItems;
         if (this.state.results.length===0){
-          displayItems = <h3>No clothes to view</h3>;
+            displayItems= <h4></h4>
         }
         else{
           displayItems = <DisplayItems images={this.state.results} handleImageClick={this.handleImageClick} />
@@ -124,7 +155,7 @@ class StylistCreateOutfit extends Component {
 
         let displayState;
         if(this.state.top==="" && this.state.bottom==="" && this.state.dress==="" && this.state.shoes==="" && this.state.accessories===""){
-            displayState = <h3> Your Outfit Will Be Displayed Here</h3>
+            displayState = <h3></h3>
         }
         else{
             displayState = 
@@ -134,15 +165,13 @@ class StylistCreateOutfit extends Component {
             dress={this.state.dress}
             shoes={this.state.shoes} 
             accessories={this.state.accessories} 
-            handleRemoveState={this.handleRemoveState}  />
+            handleRemoveState={this.handleRemoveState} 
+            handleSend2Client={this.handleSend2Client} />
         }
 
         return (
             <div id="createOutfitMain">
                 <Container>
-                    <Row>
-                        <h1>Create an Outfit</h1>
-                    </Row>
                     <Row>
                         <SearchItems handleInputChange={this.handleInputChange} handleSearchItems={this.handleSearchItems} />
                     </Row>
