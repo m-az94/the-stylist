@@ -52,8 +52,9 @@ let DisplayState = (props) =>{
     let display = checkDisplay(items);
     //console.log(display);
     return(
-        <div>
-            <h3>Your Outfit</h3>
+        <div id="disState">
+        <Container>
+        <h5 id="secTitle">Your Outfit</h5>
             <Row>
             {
                 display.map(displays =>{
@@ -69,6 +70,7 @@ let DisplayState = (props) =>{
             }
             </Row>
             <button type="button" className="btn send2Client" onClick={props.handleSend2Client}> Send Outfit to Client </button>
+        </Container>
         </div>
     )
 }

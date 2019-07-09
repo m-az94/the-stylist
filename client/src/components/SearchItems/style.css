@@ -1,5 +1,6 @@
 .wrap{
     width: 100%;
+    margin: 5vw;
 }
 #form{
     width: 100%;
@@ -10,4 +11,12 @@
     padding: 0px;
     margin: 0px;
 
+}
+#search{
+    background:#F8F9FA;
+    /* border: 2px solid #DFB4F1; */
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+    
 }

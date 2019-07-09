@@ -12,6 +12,7 @@ export default {
     findDresses: dresses,
     findShoes: shoes,
     findAccessories: accessories,
+
     // Outfits - clientStylistRef model
     createOutfit: function(sendOutfit){
       axios.post("api/outfit/stylistClientRef", sendOutfit);
@@ -25,14 +26,24 @@ export default {
     updateClientOutfit: function(id){
       axios.post("api/outfit/stylistClientRef/"+id, )
     },
+    
     // Kathy 
     getRandomDog: function() {
       return axios.get("https://dog.ceo/api/breeds/image/random");
     },
-    getDogsOfBreed: function(breed) {
-      return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
+    getDogsOfBreed: function (breed) {
+        return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
     },
-    getBaseBreedsList: function() {
-      return axios.get("https://dog.ceo/api/breeds/list");
+    getBaseBreedsList: function () {
+        return axios.get("https://dog.ceo/api/breeds/list");
+    },
+    getClientInfo: function () {
+        return axios.get("/api/userinfo");
+    },
+    postClientInfo: function (data) {
+        console.log("test");
+        console.log(data);
+        return axios.post("/api/userinfo",data)
     }
-  };  
+
+  };
