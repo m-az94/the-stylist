@@ -5,7 +5,8 @@ import "./style.css"
 
 let SearchItems = props =>{
     return(
-        <Container>
+        <div id="search">
+                <Container>
             <form id="form">
                 <Row >
                 <label id="searchItemLabel">Select one of the following: </label>
@@ -29,9 +30,11 @@ let SearchItems = props =>{
                 </Row>
             </form>
             <Row>
-            <button type="sumbit" value="submit" onClick={props.handleSearchItems} >Submit</button>
+                <br/>
+            <button className="btn" type="sumbit" value="submit" onClick={props.handleSearchItems} >Submit</button>
             </Row>
         </Container>
+        </div>
     )
 }
 

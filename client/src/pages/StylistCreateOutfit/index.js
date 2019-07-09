@@ -147,7 +147,7 @@ class StylistCreateOutfit extends Component {
 
         let displayItems;
         if (this.state.results.length===0){
-          displayItems = <h3>No clothes to view</h3>;
+            displayItems= <h4></h4>
         }
         else{
           displayItems = <DisplayItems images={this.state.results} handleImageClick={this.handleImageClick} />
@@ -155,7 +155,7 @@ class StylistCreateOutfit extends Component {
 
         let displayState;
         if(this.state.top==="" && this.state.bottom==="" && this.state.dress==="" && this.state.shoes==="" && this.state.accessories===""){
-            displayState = <h3> Your Outfit Will Be Displayed Here</h3>
+            displayState = <h3></h3>
         }
         else{
             displayState = 
@@ -172,9 +172,6 @@ class StylistCreateOutfit extends Component {
         return (
             <div id="createOutfitMain">
                 <Container>
-                    <Row>
-                    <h3>Create an Outfit</h3>
-                    </Row>
                     <Row>
                         <SearchItems handleInputChange={this.handleInputChange} handleSearchItems={this.handleSearchItems} />
                     </Row>

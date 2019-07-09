@@ -1,4 +1,7 @@
 import React from "react";
+import {Container, Row, Col} from "../Grid"
+import "./style.css";
+
 
 let checkDisplay = object =>{
     let display=[];
@@ -49,19 +52,25 @@ let DisplayState = (props) =>{
     let display = checkDisplay(items);
     //console.log(display);
     return(
-        <div>
-            <h3>Your Outfit</h3>
+        <div id="disState">
+        <Container>
+        <h5 id="secTitle">Your Outfit</h5>
+            <Row>
             {
                 display.map(displays =>{
                    return (
-                    <div key={displays.type}>
-                        <img src={displays.item}/>
-                        <button type="button" className="btn removeBtn" id={displays.type} onClick={props.handleRemoveState}> X </button>
-                    </div>
+                       <Col size="md-3">
+                            <div key={displays.type}>
+                                <img className="outfitImg" src={displays.item}/>
+                                <button type="button" className="btn removeBtn" id={displays.type} onClick={props.handleRemoveState}> X </button>
+                            </div>
+                       </Col>
                    )
                 })
             }
+            </Row>
             <button type="button" className="btn send2Client" onClick={props.handleSend2Client}> Send Outfit to Client </button>
+        </Container>
         </div>
     )
 }
