@@ -12,7 +12,7 @@ class Create extends Component {
       name: '',
       email: '',
       password: '',
-      gender: '',
+      userType: '',
     };
   }
   onChange = (e) => {
@@ -24,9 +24,9 @@ class Create extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { name, email, password, gender } = this.state;
+    const { name, email, password, userType } = this.state;
 
-    axios.post('/api/auth/register', { name, email, password, gender })
+    axios.post('/api/auth/register', { name, email, password, userType })
       .then((result) => {
         //   console.log(result)
         this.props.history.push("/login")
@@ -34,7 +34,7 @@ class Create extends Component {
   }
 
   render() {
-    const { name, email, password, gender } = this.state;
+    const { name, email, password, userType } = this.state;
     return (
       <div class="container">
         <form class="form-signin" onSubmit={this.onSubmit}>
@@ -46,22 +46,18 @@ class Create extends Component {
           <label for="inputPassword" class="sr-only">Password</label>
           <input type="password" class="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required />
 
-
-
-
-
-          <label >Gender Type </label>
+          <label >I am a ... </label>
           <br />
           <div className="radio">
             <label>
-              <input type="radio" name="gender" value="M" checked={this.state.gender === 'M'} onChange={e => this.setState({ gender: 'M' })} />
-              Male
+              <input type="radio" name="type" value="stylist" checked={this.state.userType === 'stylist'} onChange={e => this.setState({ userType: 'stylist' })} />
+              Stylist
     </label>
           </div>
           <div className="radio">
             <label>
-              <input type="radio" name="gender" value="F" checked={this.state.gender === 'F'} onChange={e => this.setState({ gender: 'F' })} />
-              Female
+              <input type="radio" name="type" value="client" checked={this.state.userType === 'client'} onChange={e => this.setState({ userType: 'client' })} />
+              Client
     </label>
           </div>
 
