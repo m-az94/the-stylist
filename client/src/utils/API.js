@@ -44,6 +44,17 @@ export default {
         console.log("test");
         console.log(data);
         return axios.post("/api/userinfo",data)
-    }
+    },
+    createMeeting: function (data) {
+        // console.log("test");
+        // console.log(data);
+        return axios.post("/api/meetings/create",data)
+    },
+    getMeetingClient: function () {
+      return axios.get("/api/meetings/getMeetingClient")
+  },
+  getMeetingStylist: function () {
+    return axios.get("/api/meetings/getMeetingStylist")
+}
 
   };
