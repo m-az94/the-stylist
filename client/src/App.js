@@ -14,6 +14,9 @@ import Register from './components/Register';
 import ClientDashboard from './pages/ClientDashboard';
 import ClientProfile from './pages/ClientProfile';
 import StylistDashboard from './pages/StylistDashboard';
+import CreateMeeting from './pages/createMeeting';
+import clientMeeting from './pages/clientMeeting';
+import stylistMeeting from './pages/stylistMeeting';
 import TopNavBar from "./components/TopNavBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -40,6 +43,9 @@ class App extends Component {
             <Route path='/client-dashboard' component={ClientDashboard} />
             <Route path='/stylist-dashboard' component={StylistDashboard} />
             <Route path='/profile' component={ClientProfile} />
+            <Route path='/meetings/create' component={CreateMeeting} />
+            <Route path='/dashboard/doctor' component={clientMeeting} />
+            <Route path='/dashboard/patient' component={stylistMeeting} />
             {/* <Route exact path="/client" components={Client} /> */}
             {/* <Route exact path="/stylist" components={Stylist} /> */}
             <Route exact path="/stylistcreateoutfit" component={StylistCreateOutfit} />
