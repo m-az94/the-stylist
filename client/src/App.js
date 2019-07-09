@@ -37,12 +37,12 @@ class App extends Component {
             <Route exact path='/' component={Main} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-            <Route path='/client-dashboard' component={ClientDashboard} />
-            <Route path='/stylist-dashboard' component={StylistDashboard} />
-            <Route path='/profile' component={ClientProfile} />
+            <Route path='/client-dashboard/:clientID' component={ClientDashboard} />
+            <Route path='/stylist-dashboard/:stylistID' component={StylistDashboard} />
+            <Route path='/create-profile/:clientID' component={ClientProfile} />
             {/* <Route exact path="/client" components={Client} /> */}
             {/* <Route exact path="/stylist" components={Stylist} /> */}
-            <Route exact path="/stylistcreateoutfit" component={StylistCreateOutfit} />
+            <Route exact path='/stylistcreateoutfit' component={StylistCreateOutfit} />
           <Footer />
           </Wrapper>
         </div>
