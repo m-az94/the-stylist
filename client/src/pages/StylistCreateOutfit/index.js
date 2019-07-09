@@ -19,43 +19,32 @@ class StylistCreateOutfit extends Component {
 
     handleInputChange = event =>{
         event.persist();
-        //console.log(event);
         this.setState({search: event.target.value});
     }
 
     handleSearchItems = event =>{
         event.persist();
-        //console.log(event);
-        //console.log(this.state.search);
         let searchTerm = this.state.search;
         switch (searchTerm){
             case "tops":
-            API.findTops()
-            .then(found => {
-                console.log(found.data[0].image);
-                this.setState({results: found.data[0].image})
-            })
-            .catch( err => console.log(err));
+            console.log(API.findTops);
+            this.setState({results: API.findTops[0].image});
             break;
             case "bottoms":
-            API.findBottoms()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findBottoms);
+            this.setState({results: API.findBottoms[0].image});
             break;
             case "dresses":
-            API.findDresses()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findDresses);
+            this.setState({results: API.findDresses[0].image});
             break;
             case "shoes":
-            API.findShoes()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findShoes);
+            this.setState({results: API.findShoes[0].image});
             break;
             case "accessories":
-            API.findAccessories()
-            .then(found => this.setState({results: found.data[0].image}))
-            .catch( err => console.log(err));
+            console.log(API.findAccessories);
+            this.setState({results: API.findAccessories[0].image});
             break;
         }
     }

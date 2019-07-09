@@ -7,16 +7,16 @@ const cheerio = require("cheerio");
 
 // GET: Scrape tops from Forever21
 router.get("/tops", (req,res)=>{
-    axios.get("https://www.forever21.com/ca/shop/catalog/category/f21/top_blouses")
+    axios.get("https://www.lechateau.com/style/jump/Tops/category/catwfr10025#q_docSort=date&q_docSortOrder=&q_pageNum=5&q_pageSize=60&q_question=&sort=&q_facetTrail=9004:catwfr10025&categoryId=catwfr10025&nsraction=handleProductsLoad")
     .then(response => {
         const results =[];
         const $ = cheerio.load(response.data);
-        $("img.product_image").each(function(i, element) {
-            var image = $(element).attr("data-original");
+        $("img.catProdImage").each(function(i, element) {
+            var image = $(element).attr("src");
             console.log(image)
             results.push({image});
         });
-        db.Clothing.create({ type:"tops",image:results })
+        db.Clothing.updateOne({ type:"tops"},{$push:{image:results }})
         .then(dbArticles => console.log(dbArticles))
         .catch(err => console.log(err));
     });
@@ -25,15 +25,15 @@ router.get("/tops", (req,res)=>{
 
 // GET: Scrape bottoms from Forever21
 router.get("/bottoms", (req, res)=>{
-    axios.get("https://www.forever21.com/ca/shop/catalog/category/f21/women-new-arrivals-clothing-bottoms")
+    axios.get("https://www.lechateau.com/style/jump/Pants/category/catwfr10028#q_docSort=date&q_docSortOrder=&q_pageNum=4&q_pageSize=60&q_question=&sort=&q_facetTrail=9004:catwfr10028&categoryId=catwfr10028&nsraction=handleProductsLoad")
     .then(response => {
         const results = [];
         const $ = cheerio.load(response.data);
-        $("img.product_image").each(function(i, element) {
-            var image = $(element).attr("data-original");
+        $("img.catProdImage").each(function(i, element) {
+            var image = $(element).attr("src");
             results.push({image});
         });
-        db.Clothing.create({ type:"bottoms",image:results })
+        db.Clothing.updateOne({ type:"bottoms"},{$push:{image:results }})
         .then(dbArticles => console.log(dbArticles))
         .catch(err => console.log(err));
     });
@@ -42,15 +42,16 @@ router.get("/bottoms", (req, res)=>{
 
 // GET: Scrape dresses from Forever21
 router.get("/dresses", (req, res)=>{
-    axios.get("https://www.forever21.com/ca/shop/catalog/category/f21/dress")
+    axios.get("https://www.lechateau.com/style/jump/Dresses/category/cat37630709#q_docSort=date&q_docSortOrder=&q_pageNum=5&q_pageSize=60&q_question=&sort=&q_facetTrail=9004:cat37630709&categoryId=cat37630709&nsraction=handleProductsLoad")
     .then(response => {
         const results = [];
         const $ = cheerio.load(response.data);
-        $("img.product_image").each(function(i, element) {
-            var image = $(element).attr("data-original");
+        $("img.catProdImage").each(function(i, element) {
+            var image = $(element).attr("src");
             results.push({image});
         });
-        db.Clothing.create({ type:"dresses",image:results })
+        db.Clothing.updateOne({ type:"dresses"},{$push:{image:results }})
+        // db.Clothing.create({ type:"dresses",image:results })
         .then(dbArticles => console.log(dbArticles))
         .catch(err => console.log(err));
     });
@@ -59,61 +60,41 @@ router.get("/dresses", (req, res)=>{
 
 // GET: Scrape shoes from Forever21
 router.get("/shoes", (req, res)=>{
-    axios.get("https://www.forever21.com/ca/shop/catalog/category/f21/shoes")
+    axios.get("https://www.lechateau.com/style/jump/Boots/category/cat45250704")
     .then(response => {
         const results = [];
         const $ = cheerio.load(response.data);
-        $("img.product_image").each(function(i, element) {
-            var image = $(element).attr("data-original");
+        $("img.catProdImage").each(function(i, element) {
+            var image = $(element).attr("src");
             results.push({image});
         });
-        db.Clothing.create({ type:"shoes",image:results })
+        // db.Clothing.create({ type:"shoes",image:results })
+        db.Clothing.updateOne({ type:"shoes"},{$push:{image:results }})
         .then(dbArticles => console.log(dbArticles))
         .catch(err => console.log(err));
     });
     res.send("Scrape Complete!");
 });
-
-// GET: Scrape bags from Forever21
-// router.get("/bags", (req, res)=>{
-//     axios.get("https://www.forever21.com/ca/shop/search/#brm-search?request_type=search&search_type=keyword&q=BAGS&l=BAGS")
-//     .then(response => {
-//         const results = [];
-//         const $ = cheerio.load(response.data);
-//         $("img.product_image").each(function(i, element) {
-//             var image = $(element).attr("src");
-//             results.push({image});
-//         });
-//         db.Clothing.create({ type:"bags",image:results })
-//         .then(dbArticles => console.log(dbArticles))
-//         .catch(err => console.log(err));
-//     });
-//     res.send("Scrape Complete!");
-// });
 
 // GET: Scrape accessories from Forever21
 router.get("/accessories", (req, res)=>{
-    axios.get("https://www.forever21.com/ca/shop/catalog/category/f21/acc")
+    axios.get("https://www.lechateau.com/style/jump/Hats+%26+Scarves+/category/cat43810710")
     .then(response => {
         const results = [];
         const $ = cheerio.load(response.data);
-        $("img.product_image").each(function(i, element) {
-            var image = $(element).attr("data-original");
+        $("img.catProdImage").each(function(i, element) {
+            var image = $(element).attr("src");
             results.push({image});
         });
-        db.Clothing.create({ type:"accessories",image:results })
+        // db.Clothing.create({ type:"accessories",image:results })
+        db.Clothing.updateOne({ type:"accessories"},{$push:{image:results }})
         .then(dbArticles => console.log(dbArticles))
         .catch(err => console.log(err));
     });
     res.send("Scrape Complete!");
 });
 
-// router.get("/scrapeditems", (req, res)=>{
-//     db.Clothing
-//     .find()
-//     .then(items => res.json(items));
-
-// })
+//------------------------------------------------- View Scraper Data by Document
 
 router.get("/scrapedTops", (req, res) =>{
     db.Clothing
@@ -144,5 +125,9 @@ router.get("/scrapedAccessories", (req, res) =>{
     .find({type: "accessories"})
     .then(items => res.json(items));
 });
+
+router.get("/allScraped", (req, res)=>{
+    db.Clothing.find().then(items=>res.json(items));
+})
 
 module.exports=router;
