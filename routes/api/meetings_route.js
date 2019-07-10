@@ -73,12 +73,13 @@ console.log(m)
  */
 router.get('/join/:meeting_id', (req, res, next) => {
   console.log(openTok)
+  const id = req.params.meeting_id
   // const m = DB.meetings_get(parseInt(req.params.meeting_id));
   // if (m == null || !m.booked) {
   //   next();
   //   return;
   // }
-  // const embed_code = DB.embed_code.replace('DEFAULT_ROOM', `meeting${m.id}`);
+  const embed_code = openTok.replace('DEFAULT_ROOM', `meeting${id}`);
 
   // if (!embed_code) {
   //   res.render('embed_not_set');
@@ -91,6 +92,7 @@ router.get('/join/:meeting_id', (req, res, next) => {
   //   res.locals.meeting_over = false;
   // }
   // res.render('meeting', { embed_code: embed_code, meeting: m });
+  res.json({embed_code : embed_code})
 });
 
 

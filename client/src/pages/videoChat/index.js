@@ -53,15 +53,17 @@ class stylistMeeting extends Component {
 
     getMeeting = () => {
 
-        console.log(this.props.location.pathname)
-        API.meetingInfo("api/" + this.props.location.pathname)
+        let link = "/api" + this.props.location.pathname;
+        API.meetingInfo(link)
             .then(res =>
                 //   this.setState({
                 //     image: res.data.message
                 //   })
                 this.setState({
-                  data: res.data.meeting
+                  data: res.data
                 })
+
+                // console.log(res)
             )
             .catch(err => console.log(err));
     };
@@ -69,7 +71,7 @@ class stylistMeeting extends Component {
     render() {
         const { data } = this.state;
         console.log(data)
-        console.log(data.meeting)
+        console.log(data.embed_code)
         return (
             <div>
                 <h2>Meeting</h2>
@@ -79,7 +81,7 @@ class stylistMeeting extends Component {
                 <div>End: <time></time></div>
                 </div>
 
-                <div id="ot_embed_demo_container"></div>
+                <div id="ot_embed_demo_container"><div dangerouslySetInnerHTML={{__html: data.embed_code}} /></div>
                 <div class="text-center">
                 <p><a class="button primary" href="/">Exit</a></p>
                 </div>

@@ -78,9 +78,8 @@ class stylistMeeting extends Component {
         return (
             <div>
             <section>
-              <h2>Doctor Dashboard</h2>
-              <a class="button pull-right" href="/meetings/create">+ Add meeting slot</a>
-
+              <h2>Patient Dashboard</h2>
+              <a class="button pull-right" href="/meetings/book">+ Book meeting</a>
              
 
               <h3>Current meeting</h3>
