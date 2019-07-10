@@ -28,10 +28,8 @@ class createMeeting extends Component {
 
         API.createMeeting(this.state)
             .then(res => 
-                //   this.setState({
-                //     image: res.data.message
-                //   })
-                this.props.history.push('/dashboard/doctor')
+                console.log(res)
+                // this.props.history.push('/dashboard/doctor')
             )
         .catch(err => console.log(err));
       }
@@ -41,24 +39,6 @@ class createMeeting extends Component {
           this.setState({ number: e.target.value }); 
         }
       }
-
-    // When the component mounts, load the next dog to be displayed
-    // componentDidMount() {
-    //     this.loadNextDog();
-    // }
-
-
-
-    // loadNextDog = () => {
-    //     API.getClientInfo()
-    //         .then(res =>
-    //             //   this.setState({
-    //             //     image: res.data.message
-    //             //   })
-    //             console.log(res)
-    //         )
-    //         .catch(err => console.log(err));
-    // };
 
     render() {
         const { start_date,duration } = this.state;

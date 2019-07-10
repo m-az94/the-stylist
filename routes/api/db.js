@@ -51,18 +51,6 @@ DB.meetings_filter = function (res,is_booked = null) {
     if (err) return next(err);
     res.json({meeting: respond})
   })
-
-  // return {
-  //   // Starting after 5 minutes
-  //   // upcoming: sort(mlist().filter(i => i.start_time.getTime() >= currtime + 300000)),
-  //   // Starting in 5 minutes or has already started but not ended
-  //   // current: sort(mlist().filter(i => i.start_time.getTime() < currtime + 300000 && i.end_time.getTime() >= currtime))
-  //   // current:   return(mlist.exec(function(err,respond){
-  //   //   if (err) return next(err);
-  //   //   return(respond)
-  //   // })
-  //   // console.log(mlist())
-  // }
 };
 
 /**
@@ -81,8 +69,6 @@ DB.meetings_update = function (id,res) {
 
   Meeting.findOneAndUpdate({_id: id}, {$set:{booked:true}}, {new: true}, (err, doc) => {
     if (err) return next(err);
-
-    // res.json("done")
 });
 }
 
@@ -99,12 +85,6 @@ DB.meetings_put = function (new_meeting) {
     if (err) return next(err);
     return(post)
   });
-  // const key = this.meetings.findIndex(m => m.id === new_meeting.id);
-  // if (key < 0) {
-  //   this.meetings.push(new_meeting);
-  // } else {
-  //   this.meetings[key] = new_meeting;
-  // }
 }
 
 module.exports = DB;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-// import './style.css';
+import './style.css';
 // import Meeting from "../../components/createMeeting";
 // import 'flatpickr/dist/themes/material_green.css'
  
@@ -71,7 +71,7 @@ class stylistMeeting extends Component {
         // console.log(item._id)
 
         item ? (
-            <div className="row meeting-item">
+            <div className="meeting-item">
                 <div className="meeting-item-time grow"><time>{item.start_time}</time></div>
                 <div>
                 <form method="POST" action="/api/meetings/book">

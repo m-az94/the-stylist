@@ -7,6 +7,7 @@ require('../../config/passport')(passport);
 
 /* GET ALL BOOKS */
 router.get('/', passport.authenticate('jwt', { session: false}), function(req, res) {
+  console.log(res)
     var token = getToken(req.headers);
     if (token) {
       Book.find(function (err, books) {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-// import './style.css';
+import './style.css';
 // import Meeting from "../../components/createMeeting";
 // import 'flatpickr/dist/themes/material_green.css'
  
@@ -73,17 +73,17 @@ class stylistMeeting extends Component {
         console.log(data)
         console.log(data.embed_code)
         return (
-            <div>
+            <div className="container">
                 <h2>Meeting</h2>
-                <div class="row space-between">
+                <div className="row space-between">
                 <div>Start: <time></time></div>
                 <div id="message"></div>
                 <div>End: <time></time></div>
                 </div>
 
-                <div id="ot_embed_demo_container"><div dangerouslySetInnerHTML={{__html: data.embed_code}} /></div>
-                <div class="text-center">
-                <p><a class="button primary" href="/">Exit</a></p>
+                <div id="ot_embed_demo_container" dangerouslySetInnerHTML={{__html: data.embed_code}}></div>
+                <div className="text-center">
+                <p><a className="button primary" href="/">Exit</a></p>
                 </div>
         </div>
         );

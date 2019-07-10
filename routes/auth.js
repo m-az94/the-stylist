@@ -35,7 +35,7 @@ router.post('/register', function(req, res) {
         email: req.body.email
     }, function(err, user) {
       if (err) throw err;
-  
+  console.log(user)
       if (!user) {
         res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
       } else {
