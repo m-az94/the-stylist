@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import './style.css';
+// import './style.css';
 // import Meeting from "../../components/createMeeting";
 // import 'flatpickr/dist/themes/material_green.css'
  
@@ -52,7 +52,7 @@ class stylistMeeting extends Component {
 
 
     getMeeting = () => {
-        API.getMeetingStylist()
+        API.getBookMeeting()
             .then(res =>
                 //   this.setState({
                 //     image: res.data.message
@@ -69,25 +69,30 @@ class stylistMeeting extends Component {
         console.log(data)
         const items = data.map((item,key) => 
         // console.log(item._id)
-              <div className="row meeting-item">
+
+        item ? (
+            <div className="row meeting-item">
                 <div className="meeting-item-time grow"><time>{item.start_time}</time></div>
-                <div className="pull-right"><a class="button" href={'/meetings/join/' + item._id}>Join meeting</a></div>
-              </div>
+                <div>
+                <form method="POST" action="/api/meetings/book">
+                    <input type="hidden" name="meeting_id" value={item._id}/>
+                    <input type="submit" value="Book"/>
+                </form>
+                </div>
+            </div>
+            ) : (
+            <p>No meetings available.</p>
+            )
         );
         console.log(data.meeting)
         return (
             <div>
             <section>
-              <h2>Doctor Dashboard</h2>
-              <a class="button pull-right" href="/meetings/create">+ Add meeting slot</a>
+            <h2>Book meeting slots</h2>
 
-             
+            {items}
 
-              <h3>Current meeting</h3>
-              <div class="column meeting-strip">
-              {items}
 
-              </div>
             </section>
         </div>
         );

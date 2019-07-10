@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import './style.css';
+// import './style.css';
 // import Meeting from "../../components/createMeeting";
 // import 'flatpickr/dist/themes/material_green.css'
  
@@ -52,7 +52,9 @@ class stylistMeeting extends Component {
 
 
     getMeeting = () => {
-        API.getMeetingStylist()
+
+        console.log(this.props.location.pathname)
+        API.meetingInfo("api/" + this.props.location.pathname)
             .then(res =>
                 //   this.setState({
                 //     image: res.data.message
@@ -67,28 +69,20 @@ class stylistMeeting extends Component {
     render() {
         const { data } = this.state;
         console.log(data)
-        const items = data.map((item,key) => 
-        // console.log(item._id)
-              <div className="row meeting-item">
-                <div className="meeting-item-time grow"><time>{item.start_time}</time></div>
-                <div className="pull-right"><a class="button" href={'/meetings/join/' + item._id}>Join meeting</a></div>
-              </div>
-        );
         console.log(data.meeting)
         return (
             <div>
-            <section>
-              <h2>Doctor Dashboard</h2>
-              <a class="button pull-right" href="/meetings/create">+ Add meeting slot</a>
+                <h2>Meeting</h2>
+                <div class="row space-between">
+                <div>Start: <time></time></div>
+                <div id="message"></div>
+                <div>End: <time></time></div>
+                </div>
 
-             
-
-              <h3>Current meeting</h3>
-              <div class="column meeting-strip">
-              {items}
-
-              </div>
-            </section>
+                <div id="ot_embed_demo_container"></div>
+                <div class="text-center">
+                <p><a class="button primary" href="/">Exit</a></p>
+                </div>
         </div>
         );
     }

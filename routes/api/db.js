@@ -75,6 +75,17 @@ DB.meetings_get = function (id) {
   return this.meetings.find(m => m.id === id) || null;
 }
 
+DB.meetings_update = function (id,res) {
+
+  console.log(id)
+
+  Meeting.findOneAndUpdate({_id: id}, {$set:{booked:true}}, {new: true}, (err, doc) => {
+    if (err) return next(err);
+
+    // res.json("done")
+});
+}
+
 /**
  * Add/Update a meeting entry
  *

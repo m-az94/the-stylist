@@ -72,7 +72,7 @@ class clientMeeting extends Component {
             item.booked ? (
               <div className="row meeting-item">
                 <div className="meeting-item-time grow"><time>{item.start_time}</time></div>
-                <div className="pull-right"><a class="button" href="/meetings/join/{item._id}">Join meeting</a></div>
+                <div className="pull-right"><a class="button" href={"/meetings/join/" + item._id}>Join meeting</a></div>
               </div>
              ) : (
             
