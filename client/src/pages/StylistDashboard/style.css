@@ -1,0 +1,22 @@
+#box{
+    background:#F8F9FA;
+    /* border: 2px solid #DFB4F1; */
+    padding: 2vw 5vw 2vw 5vw;
+    margin-top: 5vw;
+    text-align: center;
+}
+.title{
+    text-align: center;
+    font-family: 'Proxima Nova', sans-serif;
+    color: #DFB4F1;
+    
+}
+.desc{
+    text-align: center;
+    font-family: 'Proxima Nova', sans-serif;
+}
+.error{
+    font-family: 'Courier New', Courier, monospace;
+    color: grey;
+    text-align: center;
+}
