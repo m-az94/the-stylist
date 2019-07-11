@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const clientStylistRef = new Schema({
   clientID: { type: String, required: true },
   stylistID: { type: String, required: true },
-  styleResult: {type: String},
+  styleResult: Object,
   hotOrNot: Boolean,
   date: { type: Date, default: Date.now }
 });

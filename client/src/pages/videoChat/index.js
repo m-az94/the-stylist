@@ -75,11 +75,11 @@ class stylistMeeting extends Component {
         return (
             <div className="container">
                 <h2>Meeting</h2>
-                <div className="row space-between">
+                {/* <div className="row space-between">
                 <div>Start: <time></time></div>
                 <div id="message"></div>
                 <div>End: <time></time></div>
-                </div>
+                </div> */}
 
                 <div id="ot_embed_demo_container" dangerouslySetInnerHTML={{__html: data.embed_code}}></div>
                 <div className="text-center">
