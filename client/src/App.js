@@ -42,8 +42,8 @@ class App extends Component {
             <Route exact path='/' component={Main} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-            {/* // <Route path='/client-dashboard' component={ClientDashboard} />
-            // <Route path='/stylist-dashboard' component={StylistDashboard} /> */}
+            <Route path='/client-dashboard' component={ClientDashboard} />
+            {/* // <Route path='/stylist-dashboard' component={StylistDashboard} /> */}
             <Route path='/profile' component={ClientProfile} />
             <Route path='/meetings/create' component={CreateMeeting} />
             <Route path='/meetings/book' component={bookMeeting} />
@@ -51,7 +51,7 @@ class App extends Component {
             <Route path='/dashboard/patient' component={stylistMeeting} />
 
             <Route path='/meetings/join/' component={videoChat} />
-            <Route path='/client-dashboard/:clientID' component={ClientDashboard} />
+            {/* <Route path='/client-dashboard/:clientID' component={ClientDashboard} /> */}
             <Route path='/stylist-dashboard/:stylistID' component={StylistDashboard} />
             <Route path='/create-profile/:clientID' component={ClientProfile} />
             {/* <Route exact path="/client" components={Client} /> */}

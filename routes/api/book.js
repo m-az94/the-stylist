@@ -7,13 +7,16 @@ require('../../config/passport')(passport);
 
 /* GET ALL BOOKS */
 router.get('/', passport.authenticate('jwt', { session: false}), function(req, res) {
-  console.log(res)
+  console.log(res.socket.parser.incoming.user)
     var token = getToken(req.headers);
     if (token) {
-      Book.find(function (err, books) {
-        if (err) return next(err);
-        res.json(books);
-      });
+
+      // Book.find(function (err, books) {
+      //   if (err) return next(err);
+      //   res.json(books);
+      // });
+
+      res.json(res.socket.parser.incoming.user)
     } else {
       return res.status(403).send({success: false, msg: 'Unauthorized.'});
     }

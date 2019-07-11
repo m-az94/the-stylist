@@ -28,8 +28,8 @@ class createMeeting extends Component {
 
         API.createMeeting(this.state)
             .then(res => 
-                console.log(res)
-                // this.props.history.push('/dashboard/doctor')
+                // console.log(res)
+                this.props.history.push('/dashboard/doctor')
             )
         .catch(err => console.log(err));
       }

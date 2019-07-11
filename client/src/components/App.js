@@ -16,8 +16,8 @@ class App extends Component {
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
     axios.get('/api/book')
       .then(res => {
-        this.setState({ books: res.data });
-        console.log(this.state.books);
+        // this.setState({ books: res.data });
+        console.log(res);
       })
       .catch((error) => {
         if(error.response.status === 401) {
