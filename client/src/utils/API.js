@@ -40,6 +40,9 @@ export default {
     getClientInfo: function () {
         return axios.get("/api/userinfo");
     },
+    getCurrentClientInfo: function (url) {
+      return axios.get(url);
+  },
     postClientInfo: function (data) {
         console.log("test");
         console.log(data);

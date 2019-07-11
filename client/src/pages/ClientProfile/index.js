@@ -68,11 +68,20 @@ class ClientForm extends React.Component {
             displayErrors: false,
         });
 
-        console.log(stringifyFormData(data))
+        // console.log(this.state)
+        console.log(params.clientID)
 
-        API.postClientInfo(stringifyFormData(data))
+        let dataJson = JSON.parse(stringifyFormData(data))
+        console.log(dataJson)
+        dataJson.clientID = params.clientID
+
+        API.postClientInfo(dataJson)
             .then(res => this.props.history.push(`/client-dashboard/${params.clientID}`))
             .catch(err => console.log(err));
+
+            // API.getCurrentClientInfo("/api/userinfo/" + params.clientID)
+            // .then(res => console.log(res))
+            // .catch(err => console.log(err));
     }
 
     render() {
