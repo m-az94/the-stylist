@@ -1,19 +1,34 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Card from "../../components/Card";
-import StylistData from '../../stylist.json';
+import Card from "../../components/CardClientInfo";
+import {Container, Row, Col} from "../../components/Grid"
+//import StylistData from '../../stylist.json';
+import "./style.css";
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
     state = {
         image: "",
         match: false,
-        matchCount: 0
+        matchCount: 0,
+        prospectiveClients: [],
+        currentClients: [],
+        myID: ''
     };
 
 
     // When the component mounts, load the next dog to be displayed
     componentDidMount() {
-        this.loadNextDog();
+        const {match: {params}} = this.props;
+        this.setState({myID: `${params.stylistID}`});
+
+        API.getClientInfo()
+            .then(res => this.setState({prospectiveClients: res}))
+            .catch(err => console.log(err));
+
+        API.getCurrentClient(`${params.stylistID}`)
+            .then(res => this.setState({currentClients: res}))
+            .catch( err => console.log(err));
     }
 
     handleBtnClick = event => {
@@ -39,31 +54,83 @@ class Dashboard extends Component {
         this.setState(newState);
     };
 
-    loadNextDog = () => {
-        API.getClientInfo()
-            .then(res =>
-                //   this.setState({
-                //     image: res.data.message
-                //   })
-                console.log(res)
-            )
-            .catch(err => console.log(err));
-    };
-
     render() {
+        //console.log(this.state.prospectiveClients.length);
+        let displayProspects;
+        if (this.state.prospectiveClients.length===undefined|| this.state.prospectiveClients.length===0){
+            displayProspects = <p class='error'>There are currently no clients looking for stylists</p>
+        }
+        else{
+            displayProspects = this.state.prospectiveClients.map(client => {
+                return(
+                    <div>
+                        <Col size="md-3">
+                            <Card 
+                            key={client.clientID} 
+                            id={client.clientID} 
+                            name={client.name} 
+                            hair={client.hairColour}
+                            eye={client.eyeColour}
+                            bodyType={client.bodyType}
+                            style={client.q1}
+                            color={client.q2}
+                            icon={client.q3}
+                            feature={client.q4}
+                            myID={this.state.myID} />
+                        </Col>
+                    </div>
+                )
+            })
+        }
+
+        let displayCurrents;
+        console.log(this.state.currentClients.length);
+        if(this.state.currentClients.length===0|| this.state.currentClients===undefined){
+            console.log("no clients")
+            displayCurrents = <p class='error'>You do not have any clients</p>
+        }
+        else{
+            console.log("some clients")
+            displayCurrents = this.state.currentClients.map(client =>{
+                return(
+                    <div key={client._id}>
+                        <Col size="md-3">
+                            <Link to={`/video/stylist/${this.state.myID}/client/${client.clientID}`}>
+                                <button className="btn"> {client.clientName}</button>
+                            </Link>
+                        </Col>
+                    </div>
+                )
+            })
+        }
+
+
         return (
             <div>
-                <h3>
-                    New Client Info
-        </h3>
-                {
-                    StylistData.map(StylistData => (
-                        <Card
-                        // image={StylistData.image}
-                        // punny={StylistData.punny}
-                        />
-                    ))
-                }
+                <Container>
+                    <div id="box">
+                    <Row>
+                        <h3 class="title">Prospective Clients</h3>
+                    </Row>
+                    <Row>
+                        <p class="desc"> To interact with these prospect clients, you must first create an outfit for them and wait for their reply. Click on the tile to create their outfit</p>
+                    </Row>
+                    <Row>
+                        {displayProspects}
+                    </Row>
+                    <Row>
+                        <h3 class="title">Current Clients</h3>
+                    </Row>
+                    <Row>
+                        <p class="desc"> Click on your client's name to start a video call.</p>
+                    </Row>
+                    <Row>
+                        {displayCurrents}
+                    </Row>
+
+                    </div>
+
+                </Container>
             </div>
         );
     }
