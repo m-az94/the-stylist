@@ -23,6 +23,7 @@ import TopNavBar from "./components/TopNavBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import StylistData from './stylist.json';
+import Welcome from './components/Welcome'
 import ClientInfoData from './clientinfo.json';
 import Card from './components/Card';
 
@@ -39,7 +40,8 @@ class App extends Component {
           <Wrapper>
           <TopNavBar />
           {/* <SidebarExample /> */}
-            <Route exact path='/' component={Main} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path='/land' component={Main} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             {/* <Route path='/client-dashboard' component={ClientDashboard} /> */}

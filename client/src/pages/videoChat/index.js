@@ -83,7 +83,7 @@ class stylistMeeting extends Component {
 
                 <div id="ot_embed_demo_container" dangerouslySetInnerHTML={{__html: data.embed_code}}></div>
                 <div className="text-center">
-                <p><a className="button primary" href="/">Exit</a></p>
+                <p><a className="button primary" href="/land">Exit</a></p>
                 </div>
         </div>
         );

@@ -9,14 +9,21 @@
     text-align: center;
     font-family: 'Proxima Nova', sans-serif;
     color: #DFB4F1;
+    font-size: 3vw;
+    letter-spacing: 0.2vw;
+
     
 }
 .desc{
     text-align: center;
     font-family: 'Proxima Nova', sans-serif;
+    font-size: 1.2vw;
 }
 .error{
     font-family: 'Courier New', Courier, monospace;
     color: grey;
     text-align: center;
+}
+.btn{
+    width: 10vw;
 }

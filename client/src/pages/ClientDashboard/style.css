@@ -14,3 +14,11 @@ h3 {
     text-align: left;
     margin-left: 5%;
 }
+
+#background{
+    background:#F8F9FA;
+    /* border: 2px solid #DFB4F1; */
+    padding: 2vw 5vw 2vw 5vw;
+    margin-top: 5vw;
+    text-align: center;
+}

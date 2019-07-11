@@ -61,7 +61,7 @@ export default {
     return axios.post("/api/outfit/stylistClientRef/" + id);
   },
   getCurrentClient: function (id) {
-    return axios.get("/api/outfit/stylistClientRef/" + id)
+    return axios.get("/api/outfit/stylistClientRef/stylist/" + id)
   },
 
   // Kathy 

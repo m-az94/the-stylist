@@ -7,7 +7,7 @@ import logo from '../../logo-transparent.png';
 function TopNavbar() {
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <a class="navbar-brand" href="/">The Stylist</a>
+            <a class="navbar-brand" href="/land">The Stylist</a>
             <img
                 src={logo}
                 width="70"
