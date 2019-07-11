@@ -103,6 +103,8 @@ class StylistCreateOutfit extends Component {
 
     handleSend2Client = event =>{
         event.persist();
+        const {match: {params}}=this.props
+
         let outfit=[];
         if (this.state.top!==""){
             outfit.push({
@@ -134,12 +136,18 @@ class StylistCreateOutfit extends Component {
                 type: "accessories"
             })
         }
-        console.log(outfit);
-        API.createOutfit({
-            clientID: Math.floor(Math.random()*11),
-            stylistID: Math.floor(Math.random()*11),
+
+        let send = {
+            clientID: `${params.clientID}`,
+            stylistID: `${params.stylistID}`,
+            clientName: `${params.clientName}`,
             styleResult: outfit
-        });
+        }
+
+        console.log(outfit);
+        API
+        .createOutfit(send)
+        .then(() => this.props.history.push(`/stylist-dashboard/${params.stylistID}`));
 
     }
 

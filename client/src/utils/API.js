@@ -15,19 +15,19 @@ export default {
 
     // Outfits - clientStylistRef model
     createOutfit: function(sendOutfit){
-      return axios.post("api/outfit/stylistClientRef", sendOutfit);
+      return axios.post("/api/outfit/stylistClientRef", sendOutfit);
     },
     allOutfit: function(storeOutfit){
-      return axios.get("api/outfit/stylistClientRef");
+      return axios.get("/api/outfit/stylistClientRef");
     },
     findClientOutfit: function(id){
-      return axios.get("api/outfit/stylistClientRef/"+id);
+      return axios.get("/api/outfit/stylistClientRef/"+id);
     },
     updateClientOutfit: function(id){
-      return axios.post("api/outfit/stylistClientRef/"+id, )
+      return axios.post("/api/outfit/stylistClientRef/"+id);
     },
     getCurrentClient: function(id){
-      return axios.get("api/outfit/stylistClientRef/"+id)
+      return axios.get("/api/outfit/stylistClientRef/"+id)
     },
     
     // Kathy 
