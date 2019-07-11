@@ -1,0 +1,12 @@
+  
+  #ot_embed_demo_container {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+
+  }
+  
+  #ot_embed_demo_container iframe {
+    width: 800px;
+    height: 640px;
+  }

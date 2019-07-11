@@ -47,6 +47,16 @@ class App extends Component {
       break;
     }
 
+    let clientInfo = this.state.books.clientInfo;
+    console.log(clientInfo);
+    let displayEditProfile;
+    if(userType==="client" && clientInfo){
+      displayEditProfile=<Link to={`/create-profile/${this.state.books._id}`}><button class="btn btn-primary">Update Your Profile</button></Link>
+    }
+    else{
+      displayEditProfile=null;
+    }
+
     return (
       <div class="container">
       <div class="panel panel-default">
@@ -54,6 +64,9 @@ class App extends Component {
         <Container>
           <Row>
           <h1 class="panel-title">Welcome, {this.state.books.name} &nbsp; </h1>
+          </Row>
+          <Row>
+            <h3>{displayEditProfile}</h3>
           </Row>
           <Row>
             <h3>{dlink}</h3>

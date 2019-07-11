@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import logo from '../../logo-transparent.png';
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function TopNavbar() {
@@ -8,7 +9,7 @@ function TopNavbar() {
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <a class="navbar-brand" href="/">The Stylist</a>
             <img
-                src="./logo-transparent.png"
+                src={logo}
                 width="70"
                 height="50"
                 className="d-inline-block align-top"

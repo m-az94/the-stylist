@@ -38,7 +38,11 @@ class ClientForm extends React.Component {
     }
 
     handleSubmit(event) {
+
         event.preventDefault();
+
+        const {match: {params}}=this.props;
+
         if (!event.target.checkValidity()) {
             this.setState({
                 invalid: true,
@@ -64,28 +68,32 @@ class ClientForm extends React.Component {
             displayErrors: false,
         });
 
-        console.log(stringifyFormData(data))
+        // console.log(this.state)
+        console.log(params.clientID)
 
-        API.postClientInfo(stringifyFormData(data))
-            .then(res =>
-                //   this.setState({
-                //     image: res.data.message
-                //   })
-                console.log(res)
-            )
+        let dataJson = JSON.parse(stringifyFormData(data))
+        console.log(dataJson)
+        dataJson.clientID = params.clientID
+
+        API.postClientInfo(dataJson)
+            .then(res => this.props.history.push(`/client-dashboard/${params.clientID}`))
             .catch(err => console.log(err));
+
+            // API.getCurrentClientInfo("/api/userinfo/" + params.clientID)
+            // .then(res => console.log(res))
+            // .catch(err => console.log(err));
     }
 
     render() {
         const { res, invalid, displayErrors } = this.state;
         return (
-            <div>
-                <h3 className="text-center">Tell us more about <span>you</span></h3>
+            <div id="page" >
                 <form
                     onSubmit={this.handleSubmit}
                     noValidate
                     className={displayErrors ? 'displayErrors' : ''}
                 >
+                <h3 className="text-center">Tell us more about <span>you</span></h3>
                     <label htmlFor="name">My name is:</label>
                     <input
                         id="name"

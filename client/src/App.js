@@ -14,6 +14,11 @@ import Register from './components/Register';
 import ClientDashboard from './pages/ClientDashboard';
 import ClientProfile from './pages/ClientProfile';
 import StylistDashboard from './pages/StylistDashboard';
+import CreateMeeting from './pages/createMeeting';
+import clientMeeting from './pages/clientMeeting';
+import stylistMeeting from './pages/stylistMeeting';
+import bookMeeting from './pages/bookMeeting';
+import videoChat from './pages/videoChat';
 import TopNavBar from "./components/TopNavBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -37,7 +42,16 @@ class App extends Component {
             <Route exact path='/' component={Main} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-            <Route path='/client-dashboard/:clientID' component={ClientDashboard} />
+            <Route path='/client-dashboard' component={ClientDashboard} />
+            {/* // <Route path='/stylist-dashboard' component={StylistDashboard} /> */}
+            <Route path='/profile' component={ClientProfile} />
+            <Route path='/meetings/create' component={CreateMeeting} />
+            <Route path='/meetings/book' component={bookMeeting} />
+            <Route path='/dashboard/doctor' component={clientMeeting} />
+            <Route path='/dashboard/patient' component={stylistMeeting} />
+
+            <Route path='/meetings/join/' component={videoChat} />
+            {/* <Route path='/client-dashboard/:clientID' component={ClientDashboard} /> */}
             <Route path='/stylist-dashboard/:stylistID' component={StylistDashboard} />
             <Route path='/create-profile/:clientID' component={ClientProfile} />
             {/* <Route exact path="/client" components={Client} /> */}
