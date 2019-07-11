@@ -12,7 +12,9 @@ import Dialog, {
 } from '@material/react-dialog';
 
 class Dashboard extends Component {
+
   state = {
+    data: [],
     image: "",
     match: false,
     matchCount: 0,
@@ -20,41 +22,70 @@ class Dashboard extends Component {
     modalContent: ''
   };
 
+  
+
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    this.loadNextDog();
+    this.getOutfit();
   }
 
   handleBtnClick = event => {
-    // Get the data-value of the clicked button
-    const btnType = event.target.attributes.getNamedItem("data-value").value;
-    // Clone this.state to the newState object
-    // We'll modify this object and use it to set our component's state
-    const newState = { ...this.state };
 
-    if (btnType === "pick") {
-      // Set newState.match to either true or false depending on whether or not the dog likes us (1/5 chance)
-      newState.match = 1 === Math.floor(Math.random() * 5) + 1;
+    console.log(event.target.attributes.getNamedItem("data-value").value)
+    console.log(event.target.attributes.getNamedItem("data-id").value)
 
-      // Set newState.matchCount equal to its current value or its current value + 1 depending on whether the dog likes us
-      newState.matchCount = newState.match
-        ? newState.matchCount + 1
-        : newState.matchCount;
-    } else {
-      // If we thumbs down'ed the dog, we haven't matched with it
-      newState.match = false;
-    }
-    // Replace our component's state with newState, load the next dog image
-    this.setState(newState);
-  };
+    let data = event.target.attributes.getNamedItem("data-value").value;
+    let id = event.target.attributes.getNamedItem("data-id").value;
 
-  loadNextDog = () => {
-    API.postClientInfo()
+    API.isHot(id, {isHot : data})
       .then(res =>
         //   this.setState({
         //     image: res.data.message
         //   })
-        console.log(res)
+        // this.setState({
+        //   data: res.data.data
+        // })
+        this.getOutfit()
+      )
+      .catch(err => console.log(err));
+    // // Get the data-value of the clicked button
+    // const btnType = event.target.attributes.getNamedItem("data-value").value;
+    // // Clone this.state to the newState object
+    // // We'll modify this object and use it to set our component's state
+    // const newState = { ...this.state };
+
+    // if (btnType === "pick") {
+    //   // Set newState.match to either true or false depending on whether or not the dog likes us (1/5 chance)
+    //   newState.match = 1 === Math.floor(Math.random() * 5) + 1;
+
+    //   // Set newState.matchCount equal to its current value or its current value + 1 depending on whether the dog likes us
+    //   newState.matchCount = newState.match
+    //     ? newState.matchCount + 1
+    //     : newState.matchCount;
+    // } else {
+    //   // If we thumbs down'ed the dog, we haven't matched with it
+    //   newState.match = false;
+    // }
+    // // Replace our component's state with newState, load the next dog image
+    // this.setState(newState);
+
+        
+  };
+
+
+
+  getOutfit = () => {
+    const {match: {params}}=this.props;
+
+    console.log(this.props)
+    API.getOutfit(params.clientID)
+      .then(res =>
+        //   this.setState({
+        //     image: res.data.message
+        //   })
+        this.setState({
+          data: res.data.data
+        })
       )
       .catch(err => console.log(err));
   };
@@ -77,29 +108,44 @@ class Dashboard extends Component {
     )
     console.log(this.state.modalOpen)
 
+    console.log(Array.isArray(this.state.data))
+    Array.isArray(this.state.contacts)
     return (
       <div id="background" className="text-center">
         {Modal}
-        <h3>Outfit 1 <button onClick={() => this.setState({ modalOpen: true })}>Contact Sylist 1</button>
-        </h3>
-        {
-          StylistData.map(StylistData => (
-            <Card
-              image={StylistData.image}
+          {this.state.data && this.state.data.map((obj,index) => 
 
-            />
-          ))
-        }
-        <h3>Outift 2 <button onClick={() => this.setState({ modalOpen: true })}>Contact Sylist 2</button>
-        </h3>
-        {
-          StylistData.map(StylistData => (
-            <Card
-              image={StylistData.image}
+          obj.hotOrNot || obj.hotOrNot === undefined ? 
+            <div className="text-center">
+            <h3>Outfit {index + 1} 
+            
+            {obj.hotOrNot ?
+             <a class="btn secondary" href={"/meetings/join/" + this.props.match.params.clientID}>Join meeting</a>
+             :
+             ""
+            }
+            </h3>
 
-            />
-          ))
-        }
+            { obj.styleResult.map(obj2 => 
+              <Card
+                image={obj2.item} name = {obj2.type}
+              />
+            )}
+
+
+            {obj.hotOrNot ?
+              ""
+            :
+             <div className="mt-2">
+             <button type="button" onClick={this.handleBtnClick} data-value="1" data-id={obj._id} className="btn btn-secondary">Hot</button>
+             <button type="button" onClick={this.handleBtnClick} data-value="0" data-id={obj._id} className="btn btn-secondary">Not</button>
+             </div>
+            }
+            </div>
+          :
+          ""
+
+          )}
       </div>
     );
   }
