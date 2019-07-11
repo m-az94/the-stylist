@@ -9,14 +9,14 @@ const user = new Schema({
   password: {type: String, require: true, min: 6},
   userType: String,
   active: {type: Boolean, default: 1},
-  clientInfo: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the clientInfo model
-      ref: "ClientInfo"
-    }
-  ],
+  // clientInfo: [
+  //   {
+  //     // Store ObjectIds in the array
+  //     type: Schema.Types.ObjectId,
+  //     // The ObjectIds will refer to the ids in the clientInfo model
+  //     ref: "ClientInfo"
+  //   }
+  // ],
   date: { type: Date, default: Date.now }
 });
 

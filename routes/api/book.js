@@ -7,9 +7,17 @@ require('../../config/passport')(passport);
 
 /* GET ALL BOOKS */
 router.get('/', passport.authenticate('jwt', { session: false}), function(req, res) {
+  console.log(res.socket.parser.incoming.user)
     var token = getToken(req.headers);
     // console.log(res.socket._httpMessage.req.user);
     if (token) {
+
+      // Book.find(function (err, books) {
+      //   if (err) return next(err);
+      //   res.json(books);
+      // });
+
+      // res.json(res.socket.parser.incoming.user)
       Book
       .findOne({_id:res.socket._httpMessage.req.user })
       .then((books)=>{
