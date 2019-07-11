@@ -25,14 +25,14 @@ class Dashboard extends Component {
 
         API.getClientInfo()
             .then(res =>{
-                console.log(res.data);
+                //console.log(res.data);
                 this.setState({prospectiveClients: res.data})
             }).catch(err => console.log(err));
 
         API.getCurrentClient(`${params.stylistID}`)
             .then(res => {
-                console.log(res);
-                this.setState({currentClients: res})
+                console.log(res.data);
+                this.setState({currentClients: res.data})
             }).catch( err => console.log(err));
     }
 
@@ -100,8 +100,8 @@ class Dashboard extends Component {
                 return(
                     <div key={client._id}>
                         <Col size="md-3">
-                            <Link to={`/video/stylist/${this.state.myID}/client/${client.clientID}`}>
-                                <button className="btn"> {client.clientName}</button>
+                            <Link to={`/meetings/join/${client.clientID}${this.state.myID}`}>
+                                <button className="btn btn-primary"> {client.clientName}</button>
                             </Link>
                         </Col>
                     </div>

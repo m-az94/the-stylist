@@ -5,7 +5,7 @@ import "./style.css";
 function CardClientInfo(props) {
     return (
         <div className="card" key={props.key}>
-            <h4>{props.name}</h4><br/>
+            <h4>{props.name}</h4>
             <h7>Hair: {props.hair}</h7><br/>
             <h7>Eyes: {props.eye}</h7><br/>
             <h7>Body Type: {props.bodyType}</h7><br/>

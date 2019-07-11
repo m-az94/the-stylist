@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {Container, Row, Col} from "./Grid"
+import "./App.css"
 
 class App extends Component {
 
@@ -60,22 +61,22 @@ class App extends Component {
     return (
       <div class="container">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div id="box">
         <Container>
           <Row>
           <h1 class="panel-title">Welcome, {this.state.books.name} &nbsp; </h1>
           </Row>
           <Row>
-            <h3>{displayEditProfile}</h3>
-          </Row>
-          <Row>
-            <h3>{dlink}</h3>
-          </Row>
-          <Row>
-          <h3> {localStorage.getItem('jwtToken') &&
+            
+            <Col size="md-3"><h3>{displayEditProfile}</h3></Col>
+            <Col size="md-3"><h3>{dlink}</h3></Col>
+            <Col size="md-3">
+            <h3> {localStorage.getItem('jwtToken') &&
               <button class="btn btn-primary" onClick={this.logout}>Logout</button>
             }
           </h3>
+            </Col>
+        
           </Row>
         </Container>
 

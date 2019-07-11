@@ -10,6 +10,8 @@ import Dialog, {
   DialogFooter,
   DialogButton,
 } from '@material/react-dialog';
+import {Container} from "../../components/Grid";
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
 
@@ -79,18 +81,30 @@ class Dashboard extends Component {
 
     console.log(this.props)
     API.getOutfit(params.clientID)
-      .then(res =>
+      .then(res =>{
         //   this.setState({
         //     image: res.data.message
         //   })
+        console.log(res.data.data);
         this.setState({
           data: res.data.data
         })
-      )
+      })
       .catch(err => console.log(err));
   };
 
   render() {
+    const {match: {params}}=this.props;
+    console.log(this.state.data.length);
+    let DisplayEmpty; 
+    if(this.state.data.length===0){
+      DisplayEmpty=<p class="error"> Welcome to your Dashboard. Currently, you have nothing to view.
+      If you haven't already, please fill our profile form 
+      <Link to={`/create-profile/${params.clientID}`}><span class="pink"> here</span></Link></p>
+    }
+    else{
+      DisplayEmpty=<p></p>
+    }
 
     const Modal = (
       <Dialog open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false })}>
@@ -110,8 +124,11 @@ class Dashboard extends Component {
 
     console.log(Array.isArray(this.state.data))
     Array.isArray(this.state.contacts)
+    console.log(this.state.data);
     return (
+      <Container>
       <div id="background" className="text-center">
+        {DisplayEmpty}
         {Modal}
           {this.state.data && this.state.data.map((obj,index) => 
 
@@ -120,7 +137,7 @@ class Dashboard extends Component {
             <h3>Outfit {index + 1} 
             
             {obj.hotOrNot ?
-             <a class="btn secondary" href={"/meetings/join/" + this.props.match.params.clientID}>Join meeting</a>
+             <a class="btn secondary" href={`/meetings/join/${this.props.match.params.clientID}${obj.stylistID}`}>Join meeting</a>
              :
              ""
             }
@@ -147,6 +164,7 @@ class Dashboard extends Component {
 
           )}
       </div>
+      </Container>
     );
   }
 }

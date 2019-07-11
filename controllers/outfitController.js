@@ -36,5 +36,11 @@ module.exports = {
         .then(dbOutfit=> res.json(dbOutfit))
         .catch(err => console.log(err))
         // .catch(err => res.status(422).json(err))
+    },
+    findMyClients: function (req, res){
+        db.clientStylistRef
+        .find({stylistID: req.params.stylistID, hotOrNot: true})
+        .then(outfit => res.json(outfit))
+        .catch(err => console.log(err));
     }
 }

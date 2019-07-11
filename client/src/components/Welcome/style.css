@@ -1,0 +1,20 @@
+#title{
+    font-family: 'Proxima Nova', sans-serif;
+    color: #DFB4F1;
+    font-size: 3vw;
+    text-align: center;
+    letter-spacing: 0.2vw;
+    margin-top: 0px;
+}
+#blurb{
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 1.2vw;
+    margin: 1.5vw;
+}
+.pink{
+    color: #DFB4F1;
+    letter-spacing: 0.2vw
+}
+p{
+    font-size:1.5vw;
+}
