@@ -22,6 +22,10 @@ router.get('/:clientID', function (req, res) {
     })
 });
 
+router.get('/', function(req, res){
+    clientInfo.find().then(post => res.json(post)).catch(err => console.log(err));
+});
+
 router.post('/', function (req, res) {
 
     console.log(req.body)

@@ -24,12 +24,16 @@ class Dashboard extends Component {
         this.setState({myID: `${params.stylistID}`});
 
         API.getClientInfo()
-            .then(res => this.setState({prospectiveClients: res}))
-            .catch(err => console.log(err));
+            .then(res =>{
+                console.log(res.data);
+                this.setState({prospectiveClients: res.data})
+            }).catch(err => console.log(err));
 
         API.getCurrentClient(`${params.stylistID}`)
-            .then(res => this.setState({currentClients: res}))
-            .catch( err => console.log(err));
+            .then(res => {
+                console.log(res);
+                this.setState({currentClients: res})
+            }).catch( err => console.log(err));
     }
 
     handleBtnClick = event => {
