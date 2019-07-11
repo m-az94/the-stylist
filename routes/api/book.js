@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Book = require('../../models/Book');
+var Book = require('../../models/user');
 var passport = require('passport');
 require('../../config/passport')(passport);
 
@@ -9,6 +9,7 @@ require('../../config/passport')(passport);
 router.get('/', passport.authenticate('jwt', { session: false}), function(req, res) {
   console.log(res.socket.parser.incoming.user)
     var token = getToken(req.headers);
+    // console.log(res.socket._httpMessage.req.user);
     if (token) {
 
       // Book.find(function (err, books) {
@@ -16,7 +17,13 @@ router.get('/', passport.authenticate('jwt', { session: false}), function(req, r
       //   res.json(books);
       // });
 
-      res.json(res.socket.parser.incoming.user)
+      // res.json(res.socket.parser.incoming.user)
+      Book
+      .findOne({_id:res.socket._httpMessage.req.user })
+      .then((books)=>{
+        // console.log(books);
+        res.json(books);
+      });
     } else {
       return res.status(403).send({success: false, msg: 'Unauthorized.'});
     }

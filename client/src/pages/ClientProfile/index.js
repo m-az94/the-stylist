@@ -38,7 +38,11 @@ class ClientForm extends React.Component {
     }
 
     handleSubmit(event) {
+
         event.preventDefault();
+
+        const {match: {params}}=this.props;
+
         if (!event.target.checkValidity()) {
             this.setState({
                 invalid: true,
@@ -67,25 +71,20 @@ class ClientForm extends React.Component {
         console.log(stringifyFormData(data))
 
         API.postClientInfo(stringifyFormData(data))
-            .then(res =>
-                //   this.setState({
-                //     image: res.data.message
-                //   })
-                console.log(res)
-            )
+            .then(res => this.props.history.push(`/client-dashboard/${params.clientID}`))
             .catch(err => console.log(err));
     }
 
     render() {
         const { res, invalid, displayErrors } = this.state;
         return (
-            <div>
-                <h3 className="text-center">Tell us more about <span>you</span></h3>
+            <div id="page" >
                 <form
                     onSubmit={this.handleSubmit}
                     noValidate
                     className={displayErrors ? 'displayErrors' : ''}
                 >
+                <h3 className="text-center">Tell us more about <span>you</span></h3>
                     <label htmlFor="name">My name is:</label>
                     <input
                         id="name"

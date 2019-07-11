@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card";
-import StylistData from '../../stylist.json';
+import {Container, Row, Col} from "../../components/Grid"
+//import StylistData from '../../stylist.json';
 
 class Dashboard extends Component {
     state = {
@@ -42,9 +43,6 @@ class Dashboard extends Component {
     loadNextDog = () => {
         API.getClientInfo()
             .then(res =>
-                //   this.setState({
-                //     image: res.data.message
-                //   })
                 console.log(res)
             )
             .catch(err => console.log(err));
@@ -53,17 +51,26 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <h3>
-                    New Client Info
-        </h3>
-                {
-                    StylistData.map(StylistData => (
-                        <Card
-                        // image={StylistData.image}
-                        // punny={StylistData.punny}
-                        />
-                    ))
-                }
+                <Container>
+                    <div id="box">
+                    <Row>
+                        <h3 class="title">Prospective Clients</h3>
+                        <p class="desc"> To interact with these prospect clients, you must first create an outfit for them and wait for their reply. Click on the tile to create their outfit</p>
+                    </Row>
+                    <Row>
+                        {/* cards will go here */}
+                    </Row>
+                    <Row>
+                        <hr />
+                    </Row>
+                    <Row>
+                        <h3 class="title">Current Clients</h3>
+                        <p class="desc"> Click on your client's name to start a video call.</p>
+                    </Row>
+
+                    </div>
+
+                </Container>
             </div>
         );
     }
