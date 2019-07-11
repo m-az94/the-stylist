@@ -28,15 +28,6 @@ export default {
   },
 
   // Kathy 
-  getRandomDog: function () {
-    return axios.get("https://dog.ceo/api/breeds/image/random");
-  },
-  getDogsOfBreed: function (breed) {
-    return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
-  },
-  getBaseBreedsList: function () {
-    return axios.get("https://dog.ceo/api/breeds/list");
-  },
   getClientInfo: function () {
     return axios.get("/api/userinfo");
   },
@@ -51,10 +42,49 @@ export default {
   getOutfit: function (clientID) {
     return axios.get("/api/outfit/stylistClientRef/client/" + clientID)
   },
-  isHot: function (id,data) {
-    return axios.put("/api/outfit/stylistClientRef/" + id,data)
+  isHot: function (id, data) {
+    return axios.put("/api/outfit/stylistClientRef/" + id, data)
   },
-  
+
+
+  // Outfits - clientStylistRef model
+  createOutfit: function (sendOutfit) {
+    return axios.post("/api/outfit/stylistClientRef", sendOutfit);
+  },
+  allOutfit: function (storeOutfit) {
+    return axios.get("/api/outfit/stylistClientRef");
+  },
+  findClientOutfit: function (id) {
+    return axios.get("/api/outfit/stylistClientRef/" + id);
+  },
+  updateClientOutfit: function (id) {
+    return axios.post("/api/outfit/stylistClientRef/" + id);
+  },
+  getCurrentClient: function (id) {
+    return axios.get("/api/outfit/stylistClientRef/" + id)
+  },
+
+  // Kathy 
+  // getRandomDog: function() {
+  //   return axios.get("https://dog.ceo/api/breeds/image/random");
+  // },
+  // getDogsOfBreed: function (breed) {
+  //     return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
+  // },
+  // getBaseBreedsList: function () {
+  //     return axios.get("https://dog.ceo/api/breeds/list");
+  // },
+  getClientInfo: function () {
+    return axios.get("/api/userinfo");
+  },
+  getCurrentClientInfo: function (url) {
+    return axios.get(url);
+  },
+  postClientInfo: function (data) {
+    console.log("test");
+    console.log(data);
+    return axios.post("/api/userinfo", data)
+  },
   createMeeting: function (data) {
     // console.log("test");
     // console.log(data);

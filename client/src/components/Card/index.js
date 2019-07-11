@@ -3,6 +3,7 @@ import "./style.css";
 
 function Card(props) {
     return (
+<<<<<<< HEAD
         <div
             className="card"
 >
@@ -11,6 +12,9 @@ function Card(props) {
             <h5 class="card-title">{props.name}</h5>
         </div>
         
+=======
+        <div className="card" style={{backgroundImage: props.image ? `url(${props.image})` : "none"}}>
+>>>>>>> master
         </div>
     );
 }

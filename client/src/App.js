@@ -56,7 +56,7 @@ class App extends Component {
             <Route path='/create-profile/:clientID' component={ClientProfile} />
             {/* <Route exact path="/client" components={Client} /> */}
             {/* <Route exact path="/stylist" components={Stylist} /> */}
-            <Route exact path='/stylistcreateoutfit' component={StylistCreateOutfit} />
+            <Route exact path='/stylist/:stylistID/outfit/:clientName/:clientID' component={StylistCreateOutfit} />
           <Footer />
           </Wrapper>
         </div>

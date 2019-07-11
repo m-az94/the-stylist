@@ -13,5 +13,9 @@ router
 router
     .route("/stylistClientRef/:id")
     .put(controller.isHot);
+    
+router
+    .route("/stylistClientRef/stylist/:stylistID")
+    .get(controller.isHot);
 
 module.exports=router;
