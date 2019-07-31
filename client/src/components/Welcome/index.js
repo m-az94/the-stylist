@@ -13,18 +13,27 @@ let Welcome = () =>{
                     <h3 id="title"> Welcome to The Stylist</h3>
                 </Row>
                 <Row>
-                    <p id="blurb"> The average women spends <span class="pink">20 minutes pick out an outfit for work, evenings, and weekends out and, 
-                    52 minutes on holidays and special occasions.</span> In other words, if you're a woman who works 5 days a week, 
-                    goes on a dinner date at least once a week, enjoys weekend outings, and has 2 big events a year,
-                    that number totals to <span class="pink">8224 hours or almost 6 days,</span> spent on pondering the age old conundrum: 
-                    <span class="pink">"Does this shirt go well with these pants?"</span> But what can you do? That's the price you have pay
-                    to be comfortable with your appearence. Right?<br />
-                    We at The Stylist believe your time is more valuable than that. 
-                    We've created an application with a unique interface to help users and stylist find each other.
-                    This application revolutionizes consultations. 
-                    No need to, review endless portfolios and spend 45 min to an hour, per stylist, while trying to find the right fit for you.
-                    Stylist send you a <span class="pink">personalized outfit portfolio.</span>
-                    In addition, video conferencing is built into our system, so you can collaborate at your convenience.</p>
+                    <p id="blurb"> The average woman spends <span class="pink"> 6 months</span> of her working life, picking out clothes to wear. Time is money, and 
+                    we believe that no one should be charged so heinously to look and feel <span class="pink">strong, confident, and fierce</span>.<br />
+                    We've created The Stylist as a solution to this problem. This application offers a unique interface to connect users with personal stylist.</p>
+                </Row>
+                <Row>
+                    <Col size="md-6">
+                    <p class="pink">User Benefits: </p>
+                    <ul>
+                        <li>Easy access to thousands of stylist</li>
+                        <li>Recieve portfolios personalized to your requirements</li>
+                        <li>Connect via Video Chat</li>
+                    </ul>
+                    </Col>
+                    <Col size="md-6">
+                    <p class="pink">Stylist Benefits: </p>
+                    <ul>
+                        <li>Easy access to thousands of clients</li>
+                        <li>Create personalized portfolios in minutes </li>
+                        <li>Connect via Video Chat</li>
+                    </ul>
+                    </Col>
                 </Row>
                 <Row>
                 <Col size="md-6">

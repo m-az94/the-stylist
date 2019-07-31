@@ -7,7 +7,7 @@ import logo from '../../logo-transparent.png';
 function TopNavbar() {
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <a class="navbar-brand" href="/land">The Stylist</a>
+            <a class="navbar-brand" href="/">The Stylist</a>
             <img
                 src={logo}
                 width="70"
@@ -31,15 +31,15 @@ function TopNavbar() {
                             <a class="dropdown-item" href="#">Another action</a>
                         </div>
                     </li> */}
-                    <li class="nav-item" id="signIn">
+                    {/* <li class="nav-item" id="signIn">
                         <Link to="/login"
                             className={window.location.pathname === "/login" ? "nav-link" : "nav-link"}
                         > Log in</Link>
-                    </li>
+                    </li> */}
                     <li class="nav-item" id="signUp">
-                        <Link to="/register"
-                            className={window.location.pathname === "/register" ? "nav-link" : "nav-link"}
-                        >Get Started
+                        <Link to="/land"
+                            className={window.location.pathname === "/options" ? "nav-link" : "nav-link"}
+                        >Options
                         </Link>
                     </li>
                 </ul>

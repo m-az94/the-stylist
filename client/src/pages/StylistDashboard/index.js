@@ -14,18 +14,20 @@ class Dashboard extends Component {
         matchCount: 0,
         prospectiveClients: [],
         currentClients: [],
-        myID: ''
+        myID: '',
+        myName: ""
     };
 
 
     // When the component mounts, load the next dog to be displayed
     componentDidMount() {
         const {match: {params}} = this.props;
-        this.setState({myID: `${params.stylistID}`});
+        this.setState({
+            myName: `${params.stylistName}`,
+            myID: `${params.stylistID}`});
 
         API.getClientInfo()
             .then(res =>{
-                //console.log(res.data);
                 this.setState({prospectiveClients: res.data})
             }).catch(err => console.log(err));
 
@@ -60,13 +62,39 @@ class Dashboard extends Component {
     };
 
     render() {
+        // console.log(this.state.currentClients);
+        // console.log(this.state.prospectiveClients);
         //console.log(this.state.prospectiveClients.length);
+
+        let prospects = [];
+        let doNotAdd = [];
+        let st_prospects = this.state.prospectiveClients;
+        let st_clients = this.state.currentClients;
+ 
+
+        for(let i=0; i<st_prospects.length; i++){
+            for(let j=0; j<st_clients.length; j++){
+                if (st_prospects[i].clientID === st_clients[j].clientID){
+                    doNotAdd.push(i);
+                }
+            }
+        }
+    
+        for(let k=0; k<st_prospects.length; k++){
+            if(doNotAdd.includes(k)){
+                // do nothing
+            }
+            else{
+                prospects.push(st_prospects[k]);
+            }
+        }
+
         let displayProspects;
         if (this.state.prospectiveClients.length===undefined|| this.state.prospectiveClients.length===0){
             displayProspects = <p class='error'>There are currently no clients looking for stylists</p>
         }
         else{
-            displayProspects = this.state.prospectiveClients.map(client => {
+            displayProspects = prospects.map(client => {
                 return(
                     <div>
                         <Col size="md-3">
@@ -81,21 +109,23 @@ class Dashboard extends Component {
                             color={client.q2}
                             icon={client.q3}
                             feature={client.q4}
-                            myID={this.state.myID} />
+                            myID={this.state.myID}
+                            myName={this.state.myName} />
                         </Col>
                     </div>
                 )
             })
         }
 
+
         let displayCurrents;
-        console.log(this.state.currentClients.length);
+        // console.log(this.state.currentClients.length);
         if(this.state.currentClients.length===0|| this.state.currentClients===undefined){
-            console.log("no clients")
+            // console.log("no clients")
             displayCurrents = <p class='error'>You do not have any clients</p>
         }
         else{
-            console.log("some clients")
+            // console.log("some clients")
             displayCurrents = this.state.currentClients.map(client =>{
                 return(
                     <div key={client._id}>

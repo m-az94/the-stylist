@@ -18,7 +18,85 @@
   font-size: large;
 }
 
+.containsPages{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+a.btn.secondary, button.btn.btn-secondary{
+  width: fit-content;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@media screen and (max-width: 1083px){
+  .container{
+      width: 916px;
+  }
+}
+@media screen and (max-width: 800px){
+  .container{
+      width: 750px;
+  }
+}
+@media screen and (max-width: 750px){
+  .container{
+      width: 700px;
+  }
+}
+@media screen and (max-width: 700px){
+  .container{
+      width: 650px;
+  }
+}
+@media screen and (max-width: 650px){
+  .container{
+      width: 600px;
+  }
+}
+@media screen and (max-width: 600px){
+  .container{
+      width: 550px;
+  }
+}
+@media screen and (max-width: 550px){
+  .container{
+      width: 500px;
+  }
+}
+@media screen and (max-width: 500px){
+  .container{
+      width: 475px;
+  }
+}
+@media screen and (max-width: 475px){
+  .container{
+      width: 400px;
+  }
+}
+@media screen and (max-width: 400px){
+  .container{
+      width: 375px;
+  }
+}
+@media screen and (max-width: 375px){
+  .container{
+      width: 350px;
+  }
+}
+@media screen and (max-width: 350px){
+  .container{
+      width: 320px;
+  }
+}
+@media screen and (max-width: 320px){
+  .container{
+      width: 300px;
+  }
+}
+
+
+

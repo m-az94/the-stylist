@@ -141,13 +141,14 @@ class StylistCreateOutfit extends Component {
             clientID: `${params.clientID}`,
             stylistID: `${params.stylistID}`,
             clientName: `${params.clientName}`,
+            stylistName: `${params.stylistName}`,
             styleResult: outfit
         }
 
         console.log(outfit);
         API
         .createOutfit(send)
-        .then(() => this.props.history.push(`/stylist-dashboard/${params.stylistID}`));
+        .then(() => this.props.history.push(`/stylist-dashboard/${params.stylistName}/${params.stylistID}`));
 
     }
 
