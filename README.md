@@ -56,7 +56,7 @@ https://the-stylist.herokuapp.com/
 
 Team 3 | Github | Email 
 ------------ | ------------- | -------------
-Maria Azam | https://github.com/m-az94 | m.az94@hotmail.com
+Maria Azam | https://github.com/m-az94 | mfazam.cs@gmail.com
 Phuoc Phan | https://github.com/pphan93 | phuocphan12@gmail.com
 Nirossan Vijayakumar | https://github.com/Nirossan | nirossanvijayakumar7@gmail.com
 Hamid Mojtahedinia| https://github.com/hmojtahedinia | h.mojtahedinia@gmail.com
