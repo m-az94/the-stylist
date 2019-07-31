@@ -40,7 +40,8 @@ class App extends Component {
           <Wrapper>
           <TopNavBar />
           {/* <SidebarExample /> */}
-            <Route exact path="/" component={Welcome} />
+          <div class="containsPages">
+          <Route exact path="/" component={Welcome} />
             <Route exact path='/land' component={Main} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
@@ -54,11 +55,13 @@ class App extends Component {
 
             <Route path='/meetings/join/' component={videoChat} />
             <Route path='/client-dashboard/:clientID' component={ClientDashboard} />
-            <Route path='/stylist-dashboard/:stylistID' component={StylistDashboard} />
+            <Route path='/stylist-dashboard/:stylistName/:stylistID' component={StylistDashboard} />
             <Route path='/create-profile/:clientID' component={ClientProfile} />
             {/* <Route exact path="/client" components={Client} /> */}
             {/* <Route exact path="/stylist" components={Stylist} /> */}
-            <Route exact path='/stylist/:stylistID/outfit/:clientName/:clientID' component={StylistCreateOutfit} />
+            <Route exact path='/stylist/:stylistName/:stylistID/outfit/:clientName/:clientID' component={StylistCreateOutfit} />
+          </div>
+
           <Footer />
           </Wrapper>
         </div>

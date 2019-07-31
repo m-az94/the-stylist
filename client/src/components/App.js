@@ -41,7 +41,7 @@ class App extends Component {
     let dlink;
     switch(userType){
       case "stylist":
-      dlink=<Link to={`/stylist-dashboard/${this.state.books._id}`}><button class="btn btn-primary"> Go To Your Dashboard </button></Link>;
+      dlink=<Link to={`/stylist-dashboard/${this.state.books.name}/${this.state.books._id}`}><button class="btn btn-primary"> Go To Your Dashboard </button></Link>;
       break;
       case "client":
       dlink=<Link to={`/client-dashboard/${this.state.books._id}`}><button class="btn btn-primary"> Go To Your Dashboard </button></Link>;

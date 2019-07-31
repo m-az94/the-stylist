@@ -27,5 +27,65 @@ label{
     margin: 0px;
 }
 .p{
-    font-size: 1vw;
+    font-size: 15px;
 }
+@media screen and (max-width: 800px){
+    #search{
+        width: 750px;
+    }
+  }
+  @media screen and (max-width: 750px){
+    #search{
+        width: 700px;
+    }
+  }
+  @media screen and (max-width: 700px){
+    #search{
+        width: 650px;
+    }
+  }
+  @media screen and (max-width: 650px){
+    #search{
+        width: 600px;
+    }
+  }
+  @media screen and (max-width: 600px){
+    #search{
+        width: 550px;
+    }
+  }
+  @media screen and (max-width: 550px){
+    #search{
+        width: 500px;
+    }
+  }
+  @media screen and (max-width: 500px){
+    #search{
+        width: 475px;
+    }
+  }
+  @media screen and (max-width: 475px){
+    #search{
+        width: 400px;
+    }
+  }
+  @media screen and (max-width: 400px){
+    #search{
+        width: 375px;
+    }
+  }
+  @media screen and (max-width: 375px){
+    #search{
+        width: 350px;
+    }
+  }
+  @media screen and (max-width: 350px){
+    #search{
+        width: 320px;
+    }
+  }
+  @media screen and (max-width: 320px){
+    #search{
+        width: 300px;
+    }
+  }

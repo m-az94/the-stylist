@@ -11,9 +11,76 @@
     /* border: 2px solid #DFB4F1; */
     padding: 2vw 5vw 2vw 5vw;
     margin-top: 5vw;
+    width: 100%
 
 }
 .removeBtn{
     width: 15vw;
     margin-bottom: 2vw;
 }
+@media screen and (max-width: 1083px){
+    .container, #disState{
+        width: 916px;
+    }
+  }
+  @media screen and (max-width: 800px){
+    .container, #disState{
+        width: 750px;
+    }
+  }
+  @media screen and (max-width: 750px){
+    .container, #disState{
+        width: 700px;
+    }
+  }
+  @media screen and (max-width: 700px){
+    .container, #disState{
+        width: 650px;
+    }
+  }
+  @media screen and (max-width: 650px){
+    .container, #disState{
+        width: 600px;
+    }
+  }
+  @media screen and (max-width: 600px){
+    .container, #disState{
+        width: 550px;
+    }
+  }
+  @media screen and (max-width: 550px){
+    .container, #disState{
+        width: 500px;
+    }
+  }
+  @media screen and (max-width: 500px){
+    .container, #disState{
+        width: 475px;
+    }
+  }
+  @media screen and (max-width: 475px){
+    .container, #disState{
+        width: 400px;
+    }
+  }
+  @media screen and (max-width: 400px){
+    .container, #disState{
+        width: 375px;
+    }
+  }
+  @media screen and (max-width: 375px){
+    .container, #disState{
+        width: 350px;
+    }
+  }
+  @media screen and (max-width: 350px){
+    .container, #disState{
+        width: 320px;
+    }
+  }
+  @media screen and (max-width: 320px){
+    .container, #disState{
+        width: 300px;
+    }
+  }
+  

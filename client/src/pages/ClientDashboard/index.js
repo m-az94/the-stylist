@@ -134,7 +134,7 @@ class Dashboard extends Component {
 
           obj.hotOrNot || obj.hotOrNot === undefined ? 
             <div className="text-center">
-            <h3>Outfit {index + 1} 
+            <h3>Outfit by {obj.stylistName}<span>                </span>
             
             {obj.hotOrNot ?
              <a class="btn secondary" href={`/meetings/join/${this.props.match.params.clientID}${obj.stylistID}`}>Join meeting</a>

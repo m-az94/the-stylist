@@ -8,6 +8,10 @@
     outline: none;
     color: white;
 }
+a.btn.secondary, button.btn.btn-secondary{
+    width: fit-content;
+}
+
 
 h3 {
     font-family: 'Proxima Nova', sans-serif;
@@ -21,4 +25,76 @@ h3 {
     padding: 2vw 5vw 2vw 5vw;
     margin-top: 5vw;
     text-align: center;
+}
+@media screen and (max-width: 800px){
+    #background, .container{
+        width: 750px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 750px){
+    #background, .container{
+        width: 700px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 700px){
+    #background, .container{
+        width: 650px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 650px){
+    #background, .container{
+        width: 600px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 600px){
+    #background, .container{
+        width: 550px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 550px){
+    #background, .container{
+        width: 500px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 500px){
+    #box, .container{
+        width: 475px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 475px){
+    #background, .container{
+        width: 400px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 400px){
+    #background, .container{
+        width: 375px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 375px){
+    #background, .container{
+        width: 350px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 350px){
+    #background, .container{
+        width: 320px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width: 320px){
+    #background, .container{
+        width: 300px;
+        margin: 0px;
+    }
 }

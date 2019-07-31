@@ -64,3 +64,9 @@
     color: #000;
     margin-left: 15px;
   }
+
+  @media screen and (max-width: 1068px){
+    .form-signin{
+      margin: 10%;
+    }
+  }

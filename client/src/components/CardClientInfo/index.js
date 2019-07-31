@@ -13,7 +13,7 @@ function CardClientInfo(props) {
             <h7>Style Icon: {props.icon}</h7><br/>
             <h7>Favourite Color: {props.color}</h7><br/>
             <h7>Best Feature: {props.feature}</h7><br/>
-            <Link to={`/stylist/${props.myID}/outfit/${props.name}/${props.id}`} >
+            <Link to={`/stylist/${props.myName}/${props.myID}/outfit/${props.name}/${props.id}`} >
                 <button type="button" className='btn'>Send Outfit</button>
             </Link>
             

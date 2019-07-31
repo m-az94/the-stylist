@@ -1,7 +1,7 @@
 .panel-title{
     font-family: 'Proxima Nova', sans-serif;
     color: #DFB4F1;
-    font-size: 3vw;
+    font-size: 18px;
     text-align: center;
     letter-spacing: 0.2vw;
     margin-top: 0px;
@@ -9,3 +9,6 @@
 .btn{
     width: 100%;
 }
+ button.btn.btn-primary{
+    width: fit-content;
+  }
